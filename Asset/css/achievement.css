@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Girassol&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Suranna&display=swap');
+
+table{
+    border-collapse: collapse;
+    margin: 5rem auto;
+}
+
+th{
+    border-bottom: 3px solid #AAAAAA;
+    background-color: #2E303E;
+    color: #AAAAAA;
+    padding: 5px;
+
+    font-family: 'Girassol', cursive;
+    letter-spacing: 3px;
+}
+
+td{
+    padding: 1rem 5rem 1rem 1rem;
+    background-color: #9199BE;
+    color: #54578F;
+
+    font-family: 'Cairo', sans-serif;
+}
+
+.romanNumeral{
+    font-family: 'Suranna', serif;
+    font-size: 2.5rem;
+}
