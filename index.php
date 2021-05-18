@@ -35,9 +35,9 @@ if(isset($_GET['controller'])) {
             $controller = new PageController();
             $controller->achievement();
             break;
-        case 'stock':
+        case 'category':
             $controller = new PageController();
-            $controller->stock();
+            $controller->category();
             break;
         case 'modifyCard':
             $controller = new StockController();
@@ -47,6 +47,10 @@ if(isset($_GET['controller'])) {
             else{
                 $controller->modify($_POST,1);
             }
+            break;
+        case 'addStock':
+            $controller = new StockController();
+            $controller->add($_POST);
             break;
     }
 }

@@ -17,7 +17,7 @@ class UserManager {
      */
     public function getById(int $id): User {
         $user = new User();
-        $request = DB::getInstance()->prepare("SELECT id, name FROM user WHERE id = :user_fk");
+        $request = DB::getInstance()->prepare("SELECT id, username FROM user WHERE id = :user_fk");
         $request->bindValue(':user_fk', $id);
         $result = $request->execute();
         if($result) {
@@ -38,7 +38,7 @@ class UserManager {
      */
     public function getByName(string $name): User {
         $user = new User();
-        $request = DB::getInstance()->prepare("SELECT id, name FROM user WHERE name = :name");
+        $request = DB::getInstance()->prepare("SELECT id, name FROM user WHERE username = :name");
         $request->bindValue(':name', $name);
         $result = $request->execute();
         if($result) {
@@ -59,7 +59,7 @@ class UserManager {
      * @return bool
      */
     public function checkUser($name, $password): bool{
-        $request = DB::getInstance()->prepare("SELECT * FROM user WHERE name = :name");
+        $request = DB::getInstance()->prepare("SELECT * FROM user WHERE username = :name");
         $request->bindValue(':name', $name);
 
         if($request->execute()) {
@@ -82,7 +82,7 @@ class UserManager {
      * @return bool
      */
     public function checkRole($name): bool{
-        $request = DB::getInstance()->prepare("SELECT * FROM user WHERE name = :name");
+        $request = DB::getInstance()->prepare("SELECT * FROM user WHERE username = :name");
         $request->bindValue(':name', $name);
 
         if($request->execute()) {

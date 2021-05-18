@@ -14,13 +14,13 @@ class PageController{
      * Show the achievement page
      */
     public function achievement() {
-        $this->render('achievement', 'Achievement Page');
+        $this->render('achievement', 'Haut fait');
     }
 
     /**
      * Show the form to change stock
      */
-    public function stock() {
-        $this->render('stock', 'Stock Page');
+    public function category() {
+        $this->render('category', 'Catégorie');
     }
 }

@@ -24,7 +24,10 @@
                         <span class="second">2eme loca: <?= $stock['loca2oO'] ?></span>
                     </p>
                 </div>
-                <a href="?controller=modifyCard&id=<?= $stock['id'] ?>" class="modifyButtonCard">Modifier</a>
+                <?php
+                if(isset($_SESSION['user']) && $_SESSION['user'] === "admin"){ ?>
+                    <a href="?controller=modifyCard&id=<?= $stock['sid'] ?>" class="modifyButtonCard">Modifier</a>
+                <?php } ?>
             </div>
             <?php
         }

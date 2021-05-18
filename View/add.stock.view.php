@@ -16,8 +16,12 @@
         <input type="text" id="reference" name="reference">
     </div>
     <div class="flex">
-        <label for="category">Catéorie: </label>
-        <input type="text" id="category" name="category">
+        <label for="category">Catégorie: </label>
+        <select name="category" id="category">
+            <option value="1">Fruit</option>
+            <option value="2">Meuble</option>
+            <option value="3">Sanitaire</option>
+        </select>
     </div>
     <div class="flex">
         <label for="description">Description: </label>

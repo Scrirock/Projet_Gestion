@@ -2,7 +2,7 @@ import {achievement} from "./achievements.js";
 
 const connexionButton = document.getElementById('connexionButton');
 const searchInput = document.getElementById('searchInput');
-const category = document.getElementById('category');
+const category = document.getElementById('categoryMenu');
 
 function achievementPage(e){
     e.preventDefault();
@@ -39,6 +39,7 @@ function checkKey(e){
     if (e.key === "Enter"){
         if (searchInput.value === "PC"){
             searchInput.value = "";
+            console.log("aled");
             let divPC = document.createElement("div");
             divPC.id =  "divPc";
             category.appendChild(divPC);

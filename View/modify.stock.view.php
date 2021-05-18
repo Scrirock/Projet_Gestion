@@ -20,7 +20,7 @@
                 <input type="text" id="reference" name="reference" value="<?= $value['reference'] ?>">
             </div>
             <div class="flex">
-                <label for="category">Catéorie: </label>
+                <label for="category">Catégorie: </label>
                 <select name="category" id="category">
                     <option value="1">Fruit</option>
                     <option value="2">Meuble</option>

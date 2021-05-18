@@ -13,9 +13,16 @@ class StockManager{
     use ManagerTrait;
 
     public function getAll(): array{
-        $request = DB::getInstance()->prepare("SELECT * FROM stock 
-                                                     INNER JOIN category 
-                                                        ON stock.fk_category = category.id");
+        $request = DB::getInstance()->prepare("SELECT 
+                                                           s.id as sid, s.fk_category,
+                                                           s.nom, s.description,
+                                                           s.etat, s.reference,
+                                                           s.localisation, s.fournisseur,
+                                                           s.stock, s.loca2oO,
+                                                           c.id as cid, c.name
+                                                      FROM stock as s
+                                                        INNER JOIN category as c
+                                                            ON s.fk_category = c.id");
         if ($request->execute()){
             return $request->fetchAll();
         }
@@ -32,6 +39,10 @@ class StockManager{
         }
     }
 
+    /**
+     * Modify a product of the database
+     * @param Stock $stockObject
+     */
     public function modify(Stock $stockObject){
         $request = DB::getInstance()->prepare("
             UPDATE stock 
@@ -68,6 +79,61 @@ class StockManager{
         $request->bindParam(":stock", $stock);
         $request->bindParam(":location2", $location2);
         $request->bindParam(":id", $id);
+
+        $request->execute();
+
+        header("Location: /");
+    }
+
+    /**
+     * add a product into the database
+     * @param Stock $stockObject
+     */
+    public function add(Stock $stockObject){
+        $request = DB::getInstance()->prepare("
+            INSERT INTO stock (
+                               nom,
+                               fk_category,
+                               description,
+                               etat,
+                               reference,
+                               localisation,
+                               fournisseur,
+                               stock,
+                               loca2oO
+                               )
+                VALUES (
+                        :name, 
+                        :category, 
+                        :description, 
+                        :condition, 
+                        :reference, 
+                        :location, 
+                        :provider, 
+                        :stock, 
+                        :location2
+                        )
+        ");
+
+        $name = $stockObject->getName();
+        $category = $stockObject->getCategory();
+        $description = $stockObject->getDescription();
+        $condition = $stockObject->getCondition();
+        $reference = $stockObject->getReference();
+        $location = $stockObject->getLocation();
+        $provider = $stockObject->getProvider();
+        $stock = $stockObject->getStock();
+        $location2 = $stockObject->getLocation2();
+
+        $request->bindParam(":name", $name);
+        $request->bindParam(":category", $category);
+        $request->bindParam(":description", $description);
+        $request->bindParam(":condition", $condition);
+        $request->bindParam(":reference", $reference);
+        $request->bindParam(":location", $location);
+        $request->bindParam(":provider", $provider);
+        $request->bindParam(":stock", $stock);
+        $request->bindParam(":location2", $location2);
 
         $request->execute();
 
