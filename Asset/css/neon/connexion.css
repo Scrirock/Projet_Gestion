@@ -1,0 +1,55 @@
+#formContainer{
+    margin: 5rem auto;
+    padding: 8rem;
+    border: 3px solid #2E303E;
+    background-color: #151515;
+    color: #23c3cf;
+    box-shadow: 2px 5px 15px #23c3cf;
+    height: 33rem;
+    width: 53rem;
+}
+
+#formContainer div{
+    margin: 2rem;
+    display: flex;
+}
+
+#connexionForm{
+    width: 35rem;
+}
+
+#validate{
+    background-color: #2E303E;
+    color: #23c3cf;
+    font-size: 2rem;
+    padding: .5rem;
+    border: 2px solid #23c3cf;
+    box-shadow: 0 0 5px #23c3cf;
+    cursor: pointer;
+    margin-top: 5rem;
+}
+
+.spaceBetweenFlex{
+    justify-content: space-between;
+}
+
+#inputSubmit{
+    justify-content: center;
+}
+
+.underlinedFocus:focus-within{
+    text-decoration: underline;
+}
+
+.hasFocus:focus{
+    box-shadow: 0 0 5px #23c3cf,
+    0 0 25px #23c3cf,
+    0 0 50px #23c3cf,
+    0 0 200px #23c3cf;
+}
+
+#divClick{
+    margin: 5rem auto;
+    width: 15rem;
+    background-color: #e94d48;
+}

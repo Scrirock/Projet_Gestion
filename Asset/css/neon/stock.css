@@ -5,15 +5,19 @@
 }
 
 .stockCard{
-    border: 2px solid  #2E303E;
+    border: 2px solid  #23c3cf;
+    box-shadow: 0 0 5px #23c3cf;
     margin: 1rem;
     width: 315px;
+    position: relative;
+    background-color: #434343;
+    color: #23c3cf;
 }
 
 .title{
     padding: .7rem;
     border-bottom: 2px solid #2E303E;
-    background-color: #9199BE;
+    background-color: #151515;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -21,13 +25,17 @@
 
 .name{
     font-size: 2.6rem;
-    color: #2E303E;
+    text-shadow:0 0 2px #23c3cf,
+    0 0 30px #23c3cf,
+    0 0 5px #23c3cf,
+    0 0 150px #23c3cf;
+    color:#23c3cf;
     letter-spacing: 2px;
 }
 
 .ref{
     font-size: 1.8rem;
-    color: #5d6b7e;
+    color: #21838f;
 }
 
 .category{
@@ -44,27 +52,38 @@
 }
 
 .modifyButtonCard{
-    color: #AAAAAA;
-    background-color: #2E303E;
+    position: absolute;
+    top: 1rem;
+    right: 0;
+
+    text-shadow:0 0 2px #23c3cf,
+    0 0 30px #23c3cf,
+    0 0 5px #23c3cf,
+    0 0 150px #23c3cf;
+    box-shadow: 0 0 5px #23c3cf;
+    color:#23c3cf;
+    background-color:#151515;
     padding: 1rem;
-    border: 1px solid black;
+    border: 1px solid #23c3cf;
     display: block;
     width: 95px;
     margin: 2rem auto;
 }
 
-#stockModifyForm{
+.stockForm{
+    color: #23c3cf;
+    background-color: #474747;
     display: flex;
     flex-flow: column wrap;
     width: 375px;
     height: 500px;
     justify-content: space-around;
     margin: 2rem auto;
-    border: 1px solid #2E303E;
+    box-shadow: 0 0 15px #23c3cf;
     padding: 2rem;
 }
 
-#stockModifyForm .flex{
+.stockForm .flex{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -72,4 +91,13 @@
 
 .stock{
     margin: 1rem;
+}
+
+.formButton{
+    padding: .7rem;
+    margin: 2rem auto;
+    display: block;
+    background-color: #151515;
+    color: #23c3cf;
+    box-shadow: 0 0 15px #23c3cf;
 }

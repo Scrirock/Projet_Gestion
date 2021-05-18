@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="Asset/css/default.css">
-    <link rel="stylesheet" href="Asset/css/menu.css">
-    <link rel="stylesheet" href="Asset/css/achievement.css">
-    <link rel="stylesheet" href="Asset/css/connexion.css">
-    <link rel="stylesheet" href="Asset/css/stock.css">
+    <link rel="stylesheet" href="Asset/css/default.css" id="themeChanger">
+    <link rel="stylesheet" href="Asset/css/theme.css">
     <script src="https://kit.fontawesome.com/10b102adea.js" crossorigin="anonymous"></script>
     <title><?= $title ?></title>
 </head>
@@ -17,6 +14,7 @@
         <p id="congrats">Félicitation, vous avez débloqué</p>
         <p id="unlock"></p>
     </div>
+    <div id="neonBar"></div>
 
     <?= $html ?>
 

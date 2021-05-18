@@ -52,6 +52,10 @@ if(isset($_GET['controller'])) {
             $controller = new StockController();
             $controller->add($_POST);
             break;
+        case 'theme':
+            $controller = new PageController();
+            $controller->theme();
+            break;
     }
 }
 else {

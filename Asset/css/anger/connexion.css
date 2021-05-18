@@ -1,0 +1,46 @@
+#formContainer{
+    margin: 5rem auto;
+    padding: 8rem;
+    border: 3px solid #212027;
+    background-color: #212027;
+    color: #F22F08;
+    height: 33rem;
+    width: 53rem;
+}
+
+#formContainer div{
+    margin: 2rem;
+    display: flex;
+}
+
+#connexionForm{
+    width: 35rem;
+}
+
+#validate{
+    background-color: #212027;
+    color: #F22F08;
+    font-size: 2rem;
+    padding: .5rem;
+    border: 2px solid #F22F08;
+    cursor: pointer;
+    margin-top: 5rem;
+}
+
+.spaceBetweenFlex{
+    justify-content: space-between;
+}
+
+#inputSubmit{
+    justify-content: center;
+}
+
+.underlinedFocus:focus-within{
+    text-decoration: underline;
+}
+
+#divClick{
+    margin: 5rem auto;
+    width: 15rem;
+    background-color: #e94d48;
+}

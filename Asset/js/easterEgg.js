@@ -3,6 +3,11 @@ import {achievement} from "./achievements.js";
 const connexionButton = document.getElementById('connexionButton');
 const searchInput = document.getElementById('searchInput');
 const category = document.getElementById('categoryMenu');
+let link = document.getElementById("themeChanger");
+if(localStorage.getItem('theme') === null){
+    localStorage.setItem('theme', 'default');
+}
+link.href = "Asset/css/"+localStorage.getItem('theme')+".css";
 
 function achievementPage(e){
     e.preventDefault();

@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200&display=swap');
+nav{
+    font-size: 2.5rem;
+    width: 100%;
+    height: 9rem;
+    padding: 2.5rem;
+    background-color: #212027;
+    color: #a73325;
+
+    font-family: 'Bai Jamjuree', sans-serif;
+    letter-spacing: 3px;
+    text-transform: capitalize;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+#categoryMenu, #other{
+    height: 3rem;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#categoryMenu{
+    width: 50%;
+}
+
+#other{
+    width: 30%;
+}
+
+.menu:hover{
+    color: #F22F08;
+    cursor: pointer;
+}
+
+.menu:hover .border{
+    width: 4rem;
+}
+
+.border{
+    width: 0;
+    transition: width .1s linear;
+    border-bottom: 1px solid #F22F08;
+    position: absolute;
+    top: 2.5rem;
+}
+
+.twoWord{
+    top: 1.2rem;
+}
+
+#connexionButton{
+    border: 2px solid #F22F08;
+    padding: 1rem;
+}
+
+#searchBar input{
+    padding: .5rem;
+}

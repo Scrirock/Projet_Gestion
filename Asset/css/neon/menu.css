@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200&display=swap');
+nav{
+    font-size: 2.5rem;
+    width: 100%;
+    height: 9rem;
+    padding: 2.5rem;
+
+    text-shadow:0 0 2px #23c3cf,
+    0 0 30px #23c3cf,
+    0 0 5px #23c3cf,
+    0 0 150px #23c3cf;
+    color:#23c3cf;
+    background-color:#151515;
+
+    font-family: 'Bai Jamjuree', sans-serif;
+    letter-spacing: 3px;
+    text-transform: capitalize;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+#categoryMenu, #other{
+    height: 3rem;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#categoryMenu{
+    width: 50%;
+}
+
+#other{
+    width: 30%;
+}
+
+.menu:hover{
+    cursor: pointer;
+}
+
+.menu:hover .border{
+    width: 4rem;
+}
+
+.border{
+    width: 0;
+    transition: width .1s linear;
+    border-bottom: 1px solid #23c3cf;
+    position: absolute;
+    top: 2.5rem;
+}
+
+.twoWord{
+    top: 1.2rem;
+}
+
+#searchBar input{
+    padding: .5rem;
+}
+
+.buttonNeon{
+    position: relative;
+    display: inline-block;
+    padding: 2rem 2.5rem;
+    color: #23c3cf;
+    text-decoration: none;
+    transition: .5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin: 2rem;
+}
+
+.buttonNeon:hover{
+    background: #23c3cf;
+    color: #050801;
+    box-shadow: 0 0 5px #23c3cf,
+    0 0 25px #23c3cf,
+    0 0 50px #23c3cf,
+    0 0 200px #23c3cf;
+}
+
+.buttonNeon span{
+    position: absolute;
+    display: block;
+}
+
+.buttonNeon span:nth-child(1){
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #23c3cf);
+    animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1{
+    0%{
+        left: -100%;
+    }
+    50%, 100%{
+        left: 100%;
+    }
+}
+
+.buttonNeon span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #23c3cf);
+    animation: animate2 1s linear infinite;
+    animation-delay: .25s;
+}
+
+@keyframes animate2{
+    0%{
+        top: -100%;
+    }
+    50%, 100%{
+        top: 100%;
+    }
+}
+
+.buttonNeon span:nth-child(3){
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #23c3cf);
+    animation: animate3 1s linear infinite;
+    animation-delay: .5s;
+}
+
+@keyframes animate3{
+    0%{
+        right: -100%;
+    }
+    50%, 100%{
+        right: 100%;
+    }
+}
+
+.buttonNeon span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #23c3cf);
+    animation: animate4 1s linear infinite;
+    animation-delay: .75s;
+}
+
+@keyframes animate4 {
+    0%{
+        bottom: -100%;
+    }
+    50%, 100%{
+        bottom: 100%;
+    }
+}

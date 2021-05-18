@@ -6,7 +6,9 @@
         <a href="?controller=category">
             <div class="menu"><div class="border">Catégorie</div></div>
         </a>
-        <div class="menu"><div class="border">dolor</div></div>
+        <a href="?controller=theme">
+            <div class="menu"><div class="border">Thèmes</div></div>
+        </a>
         <?php
             if(isset($_SESSION['user']) && $_SESSION['user'] === "admin"){ ?>
                 <a href="?controller=addStock">
@@ -19,7 +21,13 @@
         </a>
     </div>
     <div id="other">
-        <a href="?controller=connexion"><div class="menu hoverButton" id="connexionButton">Connexion</div></a>
+        <a href="?controller=connexion" class="buttonNeon menu" id="connexionButton">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Connexion
+        </a>
         <div id="searchBar">
             <input type="text" placeholder="Rechercher" id="searchInput">
         </div>

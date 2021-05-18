@@ -1,0 +1,84 @@
+#stockContainer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.stockCard{
+    border: 2px solid  #2E303E;
+    margin: 1rem;
+    width: 315px;
+    background-color: #8c8a97;
+}
+
+.title{
+    padding: .7rem;
+    border-bottom: 2px solid #2E303E;
+    background-color: #9199BE;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.name{
+    font-size: 2.6rem;
+    color: #2E303E;
+    letter-spacing: 2px;
+}
+
+.ref{
+    font-size: 1.8rem;
+    color: #5d6b7e;
+}
+
+.category{
+    padding: 1rem 1rem 1rem 0;
+}
+
+.description, .info{
+    padding: 1rem;
+}
+
+.info p{
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+}
+
+.modifyButtonCard{
+    color: #AAAAAA;
+    background-color: #2E303E;
+    padding: 1rem;
+    border: 1px solid black;
+    display: block;
+    width: 95px;
+    margin: 2rem auto;
+}
+
+.stockForm{
+    display: flex;
+    flex-flow: column wrap;
+    width: 375px;
+    height: 500px;
+    justify-content: space-around;
+    margin: 2rem auto;
+    border: 1px solid #2E303E;
+    padding: 2rem;
+}
+
+.stockForm .flex{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.stock{
+    margin: 1rem;
+}
+
+.formButton{
+    padding: .7rem;
+    margin: 2rem auto;
+    display: block;
+    background-color: #2E303E;
+    color: #AAAAAA;
+}

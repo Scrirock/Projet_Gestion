@@ -23,4 +23,8 @@ class PageController{
     public function category() {
         $this->render('category', 'Catégorie');
     }
+
+    public function theme(){
+        $this->render('theme', 'Thème');
+    }
 }
