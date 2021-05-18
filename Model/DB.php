@@ -13,7 +13,7 @@ class DB {
         $server = 'localhost';
         $user = 'root';
         $password = '';
-        $database = 'projet_gestion';
+        $database = 'gestion';
 
         try {
             self::$dbInstance = new PDO("mysql:host=$server;dbname=$database;charset=utf8", $user, $password);

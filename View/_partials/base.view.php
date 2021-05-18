@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="Asset/css/menu.css">
     <link rel="stylesheet" href="Asset/css/achievement.css">
     <link rel="stylesheet" href="Asset/css/connexion.css">
+    <link rel="stylesheet" href="Asset/css/stock.css">
     <script src="https://kit.fontawesome.com/10b102adea.js" crossorigin="anonymous"></script>
     <title><?= $title ?></title>
 </head>

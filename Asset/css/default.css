@@ -38,3 +38,12 @@ a{
     height: 9rem;
     background-image: url("/Asset/img/pc.png");
 }
+
+.littleTitle{
+    text-align: center;
+    margin: 1rem;
+}
+
+textarea{
+    resize: none;
+}

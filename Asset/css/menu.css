@@ -16,7 +16,7 @@ nav{
     justify-content: space-between;
 }
 
-#category, #other{
+#categoryMenu, #other{
     height: 3rem;
 
     display: flex;
@@ -25,7 +25,7 @@ nav{
     justify-content: space-around;
 }
 
-#category{
+#categoryMenu{
     width: 50%;
 }
 

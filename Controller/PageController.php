@@ -16,4 +16,11 @@ class PageController{
     public function achievement() {
         $this->render('achievement', 'Achievement Page');
     }
+
+    /**
+     * Show the form to change stock
+     */
+    public function stock() {
+        $this->render('stock', 'Stock Page');
+    }
 }
