@@ -29,11 +29,18 @@
     </div>
     <div class="flex">
         <label for="condition">État: </label>
-        <input class="hasFocus" type="text" id="condition" name="condition">
+        <select class="hasFocus" id="condition" name="condition">
+            <option value="1">neuf</option>
+            <option value="2">occasion</option>
+        </select>
     </div>
     <div class="flex">
         <label for="provider">Fournisseur: </label>
-        <input class="hasFocus" type="text" id="provider" name="provider">
+        <select class="hasFocus" id="provider" name="provider">
+            <option value="1">Aldi</option>
+            <option value="2">Hubo</option>
+            <option value="3">NettoieTruc</option>
+        </select>
     </div>
     <div class="flex">
         <label for="location">Localisation: </label>

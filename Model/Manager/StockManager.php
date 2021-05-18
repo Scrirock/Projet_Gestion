@@ -15,14 +15,20 @@ class StockManager{
     public function getAll(): array{
         $request = DB::getInstance()->prepare("SELECT 
                                                            s.id as sid, s.fk_category,
-                                                           s.nom, s.description,
-                                                           s.etat, s.reference,
-                                                           s.localisation, s.fournisseur,
-                                                           s.stock, s.loca2oO,
-                                                           c.id as cid, c.name
+                                                           s.product_name, s.description,
+                                                           s.fk_condition, s.reference,
+                                                           s.location, s.fk_provider,
+                                                           s.stock, s.location2,
+                                                           c.id as cid, c.name as cname,
+                                                           e.id as condId, e.condition_name,
+                                                           pro.id as proId, pro.provider_name 
                                                       FROM stock as s
                                                         INNER JOIN category as c
-                                                            ON s.fk_category = c.id");
+                                                            ON s.fk_category = c.id
+                                                        INNER JOIN etat as e
+                                                            ON s.fk_condition = e.id
+                                                        INNER JOIN provider as pro
+                                                            ON s.fk_provider = pro.id");
         if ($request->execute()){
             return $request->fetchAll();
         }
@@ -46,15 +52,15 @@ class StockManager{
     public function modify(Stock $stockObject){
         $request = DB::getInstance()->prepare("
             UPDATE stock 
-            SET nom = :name, 
+            SET product_name = :name, 
                 fk_category = :category, 
                 description = :description, 
-                etat = :condition, 
+                fk_condition = :condition, 
                 reference = :reference, 
-                localisation = :location, 
-                fournisseur = :provider, 
+                location = :location, 
+                fk_provider = :provider, 
                 stock = :stock, 
-                loca2oO = :location2
+                location2 = :location2
             WHERE id = :id
         ");
 
@@ -92,15 +98,15 @@ class StockManager{
     public function add(Stock $stockObject){
         $request = DB::getInstance()->prepare("
             INSERT INTO stock (
-                               nom,
+                               product_name,
                                fk_category,
                                description,
-                               etat,
+                               fk_condition,
                                reference,
-                               localisation,
-                               fournisseur,
+                               location,
+                               fk_provider,
                                stock,
-                               loca2oO
+                               location2
                                )
                 VALUES (
                         :name, 

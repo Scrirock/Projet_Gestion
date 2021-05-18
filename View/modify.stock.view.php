@@ -13,7 +13,7 @@
             </div>
             <div class="flex">
                 <label for="name">Nom: </label>
-                <input class="hasFocus" type="text" id="name" name="name" value="<?= $value['nom'] ?>">
+                <input class="hasFocus" type="text" id="name" name="name" value="<?= $value['product_name'] ?>">
             </div>
             <div class="flex">
                 <label for="reference">Reference: </label>
@@ -33,19 +33,26 @@
             </div>
             <div class="flex">
                 <label for="condition">État: </label>
-                <input class="hasFocus" type="text" id="condition" name="condition" value="<?= $value['etat'] ?>">
+                <select class="hasFocus" type="text" id="condition" name="condition">
+                    <option value="1">neuf</option>
+                    <option value="2">occasion</option>
+                </select>
             </div>
             <div class="flex">
                 <label for="provider">Fournisseur: </label>
-                <input class="hasFocus" type="text" id="provider" name="provider" value="<?= $value['fournisseur'] ?>">
+                <select class="hasFocus" type="text" id="provider" name="provider">
+                    <option value="1">Aldi</option>
+                    <option value="2">Hubo</option>
+                    <option value="3">NettoieTruc</option>
+                </select>
             </div>
             <div class="flex">
                 <label for="location">Localisation: </label>
-                <input class="hasFocus" type="text" id="location" name="location" value="<?= $value['localisation'] ?>">
+                <input class="hasFocus" type="text" id="location" name="location" value="<?= $value['location'] ?>">
             </div>
             <div class="flex">
                 <label for="location2">Loca2: </label>
-                <input class="hasFocus" type="text" id="location2" name="location2" value="<?= $value['loca2oO'] ?>">
+                <input class="hasFocus" type="text" id="location2" name="location2" value="<?= $value['location2'] ?>">
             </div>
             <div>
                 <input type="submit" value="Modifier" class="formButton">
