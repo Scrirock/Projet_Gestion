@@ -3,8 +3,8 @@
 
 namespace Controller;
 
-
 use Controller\Traits\RenderViewTrait;
+use Model\stock\StockManager;
 
 class PageController{
 
@@ -18,10 +18,16 @@ class PageController{
     }
 
     /**
-     * Show the form to change stock
+     * Show a tree of category and product
      */
     public function category() {
-        $this->render('category', 'Catégorie');
+        $manager = new StockManager();
+        $stock = $manager->getAll();
+        $category = $manager->getCategory();
+        $this->render('category', 'Catégorie', [
+            'stock' => $stock,
+            'category' => $category
+        ]);
     }
 
     public function theme(){

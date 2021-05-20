@@ -22,9 +22,15 @@
             <div class="flex">
                 <label for="category">Catégorie: </label>
                 <select class="hasFocus" name="category" id="category">
-                    <option value="1">Fruit</option>
-                    <option value="2">Meuble</option>
-                    <option value="3">Sanitaire</option>
+                    <option value="1">Lange</option>
+                    <option value="2">Complément alimentaire</option>
+                    <option value="3">Médical</option>
+                    <option value="4">EPI</option>
+                    <option value="5">Gant</option>
+                    <option value="6">Alphéios</option>
+                    <option value="7">Savon</option>
+                    <option value="8">Sac poubelle</option>
+                    <option value="9">Autre</option>
                 </select>
             </div>
             <div class="flex">

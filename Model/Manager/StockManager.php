@@ -34,6 +34,13 @@ class StockManager{
         }
     }
 
+    public function getCategory(): array{
+        $request = DB::getInstance()->prepare("SELECT * FROM category");
+        if ($request->execute()){
+            return $request->fetchAll();
+        }
+    }
+
     public function getOne(int $id): array{
         $request = DB::getInstance()->prepare("SELECT * FROM stock 
                                                      INNER JOIN category 

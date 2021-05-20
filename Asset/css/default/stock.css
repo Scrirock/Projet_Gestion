@@ -1,57 +1,62 @@
 #stockContainer{
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    flex-flow: column nowrap;
+    margin-top: 5rem;
 }
 
-.stockCard{
-    border: 2px solid  #2E303E;
-    margin: 1rem;
-    width: 315px;
-    background-color: #8c8a97;
-}
-
-.title{
-    padding: .7rem;
-    border-bottom: 2px solid #2E303E;
-    background-color: #9199BE;
+.categoryName{
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: space-between;
+    border: 2px solid #2E303E;
+    padding: 1.5rem;
+    color: #d2d0de;
+    background-color: #54678F;
 }
 
-.name{
-    font-size: 2.6rem;
-    color: #2E303E;
-    letter-spacing: 2px;
+.stockLine, .stockDescription{
+    height: 0;
+    overflow: hidden;
 }
 
-.ref{
-    font-size: 1.8rem;
-    color: #5d6b7e;
+.stockName{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    border: 2px solid #2E303E;
+    margin-left: 5rem;
+    padding: 1.5rem;
+    color: #d2d0de;
+    background-color: #9199BE;
 }
 
-.category{
-    padding: 1rem 1rem 1rem 0;
+.stockDescription{
+    margin-left: 10rem;
+    padding-left: 1.5rem;
+    color: #d2d0de;
+    background-color: #6C6B74;
 }
 
-.description, .info{
-    padding: 1rem;
+.stockDescription p{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
-.info p{
-    margin-bottom: .5rem;
-    margin-top: .5rem;
+.delete, .deleteStock{
+    color: red;
+    margin-right: 2.5rem;
+    margin-left: 2.5rem;
 }
 
-.modifyButtonCard{
-    color: #AAAAAA;
-    background-color: #2E303E;
-    padding: 1rem;
-    border: 1px solid black;
-    display: block;
-    width: 95px;
-    margin: 2rem auto;
+.edit:hover, .delete:hover, .editStock:hover, .deleteStock:hover{
+    cursor: pointer;
+    font-size: 2.3rem;
+}
+
+.categoryName:hover, .stockName:hover{
+    cursor: zoom-in;
+    font-size: 2.1rem;
+    border: 5px solid #2E303E;
 }
 
 .stockForm{
@@ -69,10 +74,6 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-}
-
-.stock{
-    margin: 1rem;
 }
 
 .formButton{
