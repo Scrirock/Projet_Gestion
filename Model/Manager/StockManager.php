@@ -152,4 +152,28 @@ class StockManager{
 
         header("Location: /");
     }
+
+    public function deductProduct($productArray){
+        foreach ($productArray as $key => $value){
+            $request = DB::getInstance()->prepare("SELECT stock FROM stock 
+                                                            WHERE product_name = :name");
+            $key = str_replace("_", " ", $key);
+            $request->bindParam(":name", $key);
+            $request->execute();
+            $stock = $request->fetch();
+
+            $request = DB::getInstance()->prepare("UPDATE stock SET stock = :newStock 
+                                                            WHERE product_name = :name");
+            $newValue = intval(intval($stock['stock']) - intval($value));
+            $request->bindParam(":newStock", $newValue);
+            $request->bindParam(":name", $key);
+            if ($newValue < 0){
+                header("Location: /?controller=category&error");
+            }
+            else{
+                $request->execute();
+                header("Location: /?controller=category");
+            }
+        }
+    }
 }

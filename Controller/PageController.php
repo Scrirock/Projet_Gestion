@@ -19,9 +19,14 @@ class PageController{
 
     /**
      * Show a tree of category and product
+     * @param $field
      */
-    public function category() {
+    public function category($field) {
         $manager = new StockManager();
+        if (!empty($field)){
+            $productArray = $field;
+            $manager->deductProduct($productArray);
+        }
         $stock = $manager->getAll();
         $category = $manager->getCategory();
         $this->render('category', 'Catégorie', [

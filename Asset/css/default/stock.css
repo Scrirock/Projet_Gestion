@@ -45,12 +45,21 @@
 .delete, .deleteStock{
     color: red;
     margin-right: 2.5rem;
-    margin-left: 2.5rem;
 }
 
-.edit:hover, .delete:hover, .editStock:hover, .deleteStock:hover{
+.edit, .editStock{
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+}
+
+.edit:hover, .delete:hover, .editStock:hover,
+.deleteStock:hover, .goToBasket:hover, .shoppingDelete:hover{
     cursor: pointer;
     font-size: 2.3rem;
+}
+
+#basketHover:hover{
+    cursor: pointer;
 }
 
 .categoryName:hover, .stockName:hover{
@@ -82,4 +91,43 @@
     display: block;
     background-color: #2E303E;
     color: #AAAAAA;
+}
+
+#shoppingBasket{
+    width: 55px;
+    height: 55px;
+    border-radius: 99rem;
+    overflow: hidden;
+    background-color: #2E303E;
+    color: #AAAAAA;
+    padding: 1rem;
+    position: fixed;
+    right: 1rem;
+    top: 9rem;
+}
+
+.shoppingLine{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shoppingDelete{
+    color: red;
+}
+
+.shoppingInput{
+    width: 5rem;
+    margin-right: 1.5rem;
+}
+
+#basketTitle{
+    color: #AAAAAA;
+    text-decoration: underline;
+    display: inline-block;
+}
+
+.error{
+    padding: 1rem;
+    background-color: red;
 }

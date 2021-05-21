@@ -37,7 +37,7 @@ if(isset($_GET['controller'])) {
             break;
         case 'category':
             $controller = new PageController();
-            $controller->category();
+            $controller->category($_POST);
             break;
         case 'modifyCard':
             $controller = new StockController();

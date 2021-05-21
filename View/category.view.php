@@ -1,4 +1,18 @@
-<?php include "./View/_partials/menu.view.php"; ?>
+<?php
+    include "./View/_partials/menu.view.php";
+     if(isset($_GET['error'])){ ?>
+         <div class="error">
+             <p>Vous ne pouvez pas enlever plus de produit qu'il n'y en a en stock</p>
+         </div>
+     <?php }
+?>
+
+<div id="shoppingBasket">
+    <h2 id="basketTitle"><i class="fas fa-shopping-basket" id="basketHover"></i></h2>
+    <form action="" method="POST" id="shoppingForm">
+        <input type="submit" value="Décompter" class="formButton">
+    </form>
+</div>
 
 <div id="stockContainer">
     <?php
@@ -15,8 +29,10 @@
                     <?php
                         foreach ($var['stock'] as $stock){
                             if ($stock['cname'] === $category['name']){ ?>
-                                <div class="stockName"> <?= $stock["product_name"] ?>
+                                <div class="stockName">
+                                    <span class="onlyName"><?= $stock["product_name"] ?></span>
                                     <div class="icon">
+                                        <span class="goToBasket"><i class="fas fa-shopping-basket"></i></span>
                                         <span class="editStock"><i class="far fa-edit"></i></span>
                                         <span class="deleteStock"><i class="far fa-trash-alt"></i></span>
                                     </div>
