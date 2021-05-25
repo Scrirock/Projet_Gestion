@@ -1,58 +1,71 @@
 #stockContainer{
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    flex-flow: column nowrap;
+    margin-top: 5rem;
 }
 
-.stockCard{
-    border: 2px solid  #2E303E;
-    margin: 1rem;
-    width: 315px;
-    background-color: #594346;
-    color: #F22F08;
-}
-
-.title{
-    padding: .7rem;
-    border-bottom: 2px solid #212027;
-    background-color: #561E18;
+.categoryName{
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: space-between;
-}
-
-.name{
-    font-size: 2.6rem;
-    color: #F22F08;
-    letter-spacing: 2px;
-}
-
-.ref{
-    font-size: 1.8rem;
-    color: #594346;
-}
-
-.category{
-    padding: 1rem 1rem 1rem 0;
-}
-
-.description, .info{
-    padding: 1rem;
-}
-
-.info p{
-    margin-bottom: .5rem;
-    margin-top: .5rem;
-}
-
-.modifyButtonCard{
-    color: #F22F08;
+    border: 2px solid #F22F08;
+    padding: 1.5rem;
+    color: #a73325;
     background-color: #212027;
-    padding: 1rem;
-    border: 1px solid black;
-    display: block;
-    width: 95px;
-    margin: 2rem auto;
+}
+
+.stockLine, .stockDescription{
+    height: 0;
+    overflow: hidden;
+}
+
+.stockName{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    border: 2px solid #F22F08;
+    margin-left: 5rem;
+    padding: 1.5rem;
+    color: #a73325;
+    background-color: #2b2a31;
+}
+
+.stockDescription{
+    margin-left: 10rem;
+    padding-left: 1.5rem;
+    color: #a73325;
+    background-color: #3c3b43;
+}
+
+.stockDescription p{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.delete, .deleteStock{
+    color: red;
+    margin-right: 2.5rem;
+}
+
+.edit, .editStock{
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+}
+
+.edit:hover, .delete:hover, .editStock:hover,
+.deleteStock:hover, .goToBasket:hover, .shoppingDelete:hover{
+    cursor: pointer;
+    font-size: 2.3rem;
+}
+
+#basketHover:hover{
+    cursor: pointer;
+}
+
+.categoryName:hover, .stockName:hover{
+    cursor: zoom-in;
+    font-size: 2.1rem;
+    border: 5px solid #F22F08;
 }
 
 .stockForm{
@@ -62,8 +75,9 @@
     height: 500px;
     justify-content: space-around;
     margin: 2rem auto;
-    border: 1px solid #212027;
+    border: 1px solid #F22F08;
     padding: 2rem;
+    background-color: #966d78;
 }
 
 .stockForm .flex{
@@ -72,14 +86,75 @@
     justify-content: space-between;
 }
 
-.stock{
-    margin: 1rem;
-}
-
 .formButton{
     padding: .7rem;
     margin: 2rem auto;
     display: block;
     background-color: #212027;
+    color: #a73325;
+}
+
+#shoppingBasket{
+    width: 55px;
+    height: 55px;
+    border-radius: 99rem;
+    overflow: hidden;
+    background-color: #212027;
     color: #F22F08;
+    padding: 1rem;
+    position: fixed;
+    right: 1rem;
+    top: 9rem;
+}
+
+.shoppingLine{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shoppingDelete{
+    color: red;
+}
+
+.shoppingInput{
+    width: 5rem;
+    margin-right: 1.5rem;
+}
+
+#basketTitle{
+    color: #F22F08;
+    text-decoration: underline;
+    display: inline-block;
+}
+
+.error{
+    padding: 1rem;
+    background-color: red;
+}
+
+.color{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 1rem;
+}
+
+.productLine{
+    font-size: 2.7rem;
+    margin: 1rem;
+}
+
+.productName{
+    border-bottom: 1px solid #F22F08;
+    padding: .5rem;
+
+}
+
+#containerStock{
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    height: 80vh;
+    padding: 2rem 5rem;
 }

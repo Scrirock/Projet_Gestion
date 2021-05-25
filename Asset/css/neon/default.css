@@ -11,6 +11,7 @@ html {
 body {
     width: 100%;
     font-size: 2rem;
+    background-color: #252525;
 }
 
 a{
@@ -67,4 +68,33 @@ a{
 
 textarea{
     resize: none;
+}
+
+.green{
+    background-color: #4fde48;
+    box-shadow: 0 0 5px #4fde48,
+    0 0 25px #4fde48,
+    0 0 50px #4fde48,
+    0 0 50px #4fde48;
+}
+
+.orange{
+    background-color: #de7a19;
+    box-shadow: 0 0 5px #de7a19,
+    0 0 25px #de7a19,
+    0 0 50px #de7a19,
+    0 0 50px #de7a19;
+}
+
+.red{
+    background-color: #de2722;
+    box-shadow: 0 0 5px #de2722,
+    0 0 25px #de2722,
+    0 0 50px #de2722,
+    0 0 50px #de2722;
+}
+
+.stockMin{
+    color: #868686;
+    font-size: 1.5rem;
 }

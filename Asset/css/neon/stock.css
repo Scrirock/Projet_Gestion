@@ -1,86 +1,102 @@
 #stockContainer{
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    flex-flow: column nowrap;
+    margin-top: 5rem;
 }
 
-.stockCard{
-    border: 2px solid  #23c3cf;
-    box-shadow: 0 0 5px #23c3cf;
-    margin: 1rem;
-    width: 315px;
-    position: relative;
-    background-color: #434343;
-    color: #23c3cf;
-}
-
-.title{
-    padding: .7rem;
-    border-bottom: 2px solid #2E303E;
-    background-color: #151515;
+.categoryName{
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: space-between;
-}
-
-.name{
-    font-size: 2.6rem;
-    text-shadow:0 0 2px #23c3cf,
-    0 0 30px #23c3cf,
-    0 0 5px #23c3cf,
+    border: 2px solid #23c3cf;
+    padding: 1.5rem;
+    color: #23c3cf;
+    text-shadow:0 0 15px #23c3cf,
+    0 0 15px #23c3cf,
+    0 0 50px #23c3cf,
     0 0 150px #23c3cf;
-    color:#23c3cf;
-    letter-spacing: 2px;
+    background-color: #151515;
 }
 
-.ref{
-    font-size: 1.8rem;
-    color: #21838f;
+.stockLine, .stockDescription{
+    height: 0;
+    overflow: hidden;
 }
 
-.category{
-    padding: 1rem 1rem 1rem 0;
+.stockName{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    border: 2px solid #23c3cf;
+    margin-left: 5rem;
+    padding: 1.5rem;
+    color: #23c3cf;
+    background-color: #313131;
 }
 
-.description, .info{
-    padding: 1rem;
+.stockDescription{
+    margin-left: 10rem;
+    padding-left: 1.5rem;
+    color: #23c3cf;
+    background-color: #424242;
 }
 
-.info p{
-    margin-bottom: .5rem;
-    margin-top: .5rem;
+.stockDescription p{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
-.modifyButtonCard{
-    position: absolute;
-    top: 1rem;
-    right: 0;
+.delete, .deleteStock{
+    color: red;
+    margin-right: 2.5rem;
+    text-shadow:0 0 15px red,
+    0 0 15px red,
+    0 0 50px red,
+    0 0 150px red;
+}
 
-    text-shadow:0 0 2px #23c3cf,
-    0 0 30px #23c3cf,
-    0 0 5px #23c3cf,
+.edit, .editStock{
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    text-shadow:0 0 15px #23c3cf,
+    0 0 15px #23c3cf,
+    0 0 50px #23c3cf,
     0 0 150px #23c3cf;
-    box-shadow: 0 0 5px #23c3cf;
-    color:#23c3cf;
-    background-color:#151515;
-    padding: 1rem;
-    border: 1px solid #23c3cf;
-    display: block;
-    width: 95px;
-    margin: 2rem auto;
+}
+
+.edit:hover, .delete:hover, .editStock:hover,
+.deleteStock:hover, .goToBasket:hover, .shoppingDelete:hover{
+    cursor: pointer;
+    font-size: 2.3rem;
+}
+
+#basketHover:hover{
+    cursor: pointer;
+}
+
+.categoryName:hover, .stockName:hover{
+    cursor: zoom-in;
+    font-size: 2.3rem;
+    box-shadow: inset 0 0 5px #23c3cf,
+    inset 0 0 5px #23c3cf,
+    inset 0 0 25px #23c3cf,
+    inset 0 0 50px #23c3cf;
 }
 
 .stockForm{
-    color: #23c3cf;
-    background-color: #474747;
     display: flex;
     flex-flow: column wrap;
     width: 375px;
     height: 500px;
     justify-content: space-around;
     margin: 2rem auto;
-    box-shadow: 0 0 15px #23c3cf;
+    border: 2px solid #23c3cf;
+    box-shadow: 0 0 5px #23c3cf,
+    0 0 25px #23c3cf,
+    0 0 50px #23c3cf,
+    0 0 50px #23c3cf;
     padding: 2rem;
+    background-color: #d6d6d6;
 }
 
 .stockForm .flex{
@@ -89,15 +105,95 @@
     justify-content: space-between;
 }
 
-.stock{
+.formButton{
+    padding: .7rem;
+    margin: 5rem auto 0 auto;
+    display: block;
+    background-color: #2E303E;
+    color: #23c3cf;
+    font-size: 2rem;
+    border: 2px solid #23c3cf;
+    box-shadow: 0 0 5px #23c3cf;
+    cursor: pointer;
+}
+
+#shoppingBasket{
+    width: 55px;
+    height: 55px;
+    border-radius: 99rem;
+    overflow: hidden;
+    background-color: #23c3cf;
+    color: #151515;
+    padding: 1rem;
+    position: fixed;
+    right: 1rem;
+    top: 9rem;
+}
+
+.shoppingLine{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shoppingDelete{
+    color: red;
+    text-shadow:0 0 2px red,
+    0 0 30px red,
+    0 0 5px red,
+    0 0 150px red;
+}
+
+.shoppingInput{
+    width: 5rem;
+    margin-right: 1.5rem;
+}
+
+#basketTitle{
+    color: #151515;
+    text-shadow:0 0 2px #151515,
+    0 0 30px #151515,
+    0 0 5px #151515,
+    0 0 150px #151515;
+    text-decoration: underline;
+    display: inline-block;
+}
+
+.error{
+    padding: 1rem;
+    background-color: red;
+}
+
+.color{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 1rem;
+}
+
+.productLine{
+    font-size: 2.7rem;
     margin: 1rem;
 }
 
-.formButton{
-    padding: .7rem;
-    margin: 2rem auto;
-    display: block;
-    background-color: #151515;
+.productName, .productStock{
     color: #23c3cf;
-    box-shadow: 0 0 15px #23c3cf;
+    text-shadow:0 0 2px #23c3cf,
+    0 0 30px #23c3cf,
+    0 0 5px #23c3cf,
+    0 0 150px #23c3cf;
+    padding: .5rem;
+
+}
+
+#containerStock{
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    height: 80vh;
+    padding: 2rem 5rem;
+}
+
+.neonCategory{
+    width: 100%;
 }

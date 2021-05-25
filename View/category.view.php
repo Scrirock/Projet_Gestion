@@ -25,6 +25,7 @@
                         <span class="delete"><i class="far fa-trash-alt"></i></span>
                     </div>
                 </div>
+                <div class="neonCategory"></div>
                 <div class="stockLine">
                     <?php
                         foreach ($var['stock'] as $stock){
