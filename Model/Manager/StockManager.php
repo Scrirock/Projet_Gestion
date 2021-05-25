@@ -176,4 +176,20 @@ class StockManager{
             }
         }
     }
+
+    /**
+     * @return array
+     */
+    public function getStock(): array{
+        $totalStock = [];
+        $request = DB::getInstance()->prepare("SELECT product_name, stock FROM stock");
+        $request->execute();
+
+        $stockData = $request->fetchAll();
+        foreach ($stockData as $data){
+            $totalStock[] = new Stock($data['stock'], $data['product_name']);
+        }
+
+        return $totalStock;
+    }
 }

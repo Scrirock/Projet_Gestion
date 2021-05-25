@@ -58,3 +58,4 @@
         }
     } ?>
 </div>
+<script src="/Asset/js/category.js"></script>

@@ -6,16 +6,16 @@ namespace Model\Entity;
 
 class Stock{
 
-    private ?int $id;
+    private ?int $stock;
     private ?string $name;
     private ?string $reference;
     private ?string $category;
     private ?string $description;
     private ?string $condition;
     private ?string $provider;
-    private ?int $stock;
     private ?string $location;
     private ?string $location2;
+    private ?int $id;
 
     /**
      * Stock constructor.

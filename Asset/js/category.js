@@ -51,7 +51,7 @@ for (let addOne of goToBasket){
         span.innerHTML = name;
         span.className = "shoppingName";
         let input = document.createElement("input");
-        input.value = "1";
+        input.value = "0";
         input.className = "shoppingInput"
         input.name = name;
         let span2 = document.createElement("span");
@@ -65,7 +65,9 @@ for (let addOne of goToBasket){
 
         span2.addEventListener("click", (e)=>{
             let divDeleting = e.target.parentNode.parentNode;
+            let divDeleting2 = e.target.parentNode.parentNode.previousSibling;
             divDeleting.remove();
+            divDeleting2.remove();
         });
     });
 }
