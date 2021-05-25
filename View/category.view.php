@@ -33,12 +33,13 @@
                                     <span class="onlyName"><?= $stock["product_name"] ?></span>
                                     <div class="icon">
                                         <span class="goToBasket"><i class="fas fa-shopping-basket"></i></span>
-                                        <span class="editStock"><i class="far fa-edit"></i></span>
+                                        <a href="/?controller=modifyProduct&id=<?= $stock["sid"] ?>" class="editStock"><i class="far fa-edit"></i></a>
                                         <span class="deleteStock"><i class="far fa-trash-alt"></i></span>
                                     </div>
                                 </div>
                                 <div class="stockDescription" data-name="<?= $stock["product_name"] ?>">
                                     <p class="stock">Stock: <?= $stock['stock'] ?></p>
+                                    <p class="stock">Stock Minimum: <?= $stock['stockMin'] ?></p>
                                     <p class="description">Description: <?= $stock['description'] ?></p>
                                     <div class="info">
                                         <p class="condition">État: <?= $stock['condition_name'] ?></p>

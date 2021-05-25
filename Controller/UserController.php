@@ -22,21 +22,21 @@ class UserController{
                     session_start();
                     $_SESSION["user"] = "admin";
                     $_SESSION["name"] = $name;
-                    header("Location: stockAPI.php");
+                    header("Location: /");
                     exit;
                 }
                 else{
                     session_start();
                     $_SESSION["user"] = "user";
                     $_SESSION["name"] = $name;
-                    header("Location: stockAPI.php");
+                    header("Location: /");
                     exit;
                 }
             }
             else{
                 session_start();
                 $_SESSION["error"] = "Mot de passe ou Pseudo incorrect";
-                header("Location: stockAPI.php?controller=connexion");
+                header("Location: /?controller=connexion");
                 exit;
             }
         }

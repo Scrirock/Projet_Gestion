@@ -1,4 +1,4 @@
-//setInterval(()=>{
+function showProduct(){
     let xhr = new XMLHttpRequest();
     xhr.onload = function() {
         let stock = JSON.parse(xhr.responseText);
@@ -9,14 +9,17 @@
         stock.forEach(stock => {
             divStock.innerHTML += `
                 <div class="productLine">
-                    <div class="color"></div><span class="productName">${stock.name}: <span class="productStock">${stock.stock}</span></span>
+                    <div class="color"></div><span class="productName">${stock.name}: </span>
+                    <span class="productStock">${stock.stock}</span>
+                    <span class="stockMin">(stock Minimum ${stock.stockMin}) </span>
                 </div>
             `;
             let stockColor = document.getElementsByClassName("color");
-            if (stock.stock >= 500){
+            let stockMin = stock.stockMin;
+            if (stock.stock >= stockMin+(.5*stockMin)){
                 stockColor[i].className = "color  green";
             }
-            else if (stock.stock < 500 && stock.stock >= 100){
+            else if (stock.stock < stockMin+(.5*stockMin) && stock.stock >= stockMin){
                 stockColor[i].className = "color orange";
             }
             else{
@@ -28,4 +31,6 @@
 
     xhr.open('GET', './api/stockAPI.php');
     xhr.send();
-//}, 1000);
+}
+showProduct();
+setInterval(showProduct, 360000);

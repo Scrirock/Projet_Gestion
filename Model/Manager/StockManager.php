@@ -18,7 +18,7 @@ class StockManager{
                                                            s.product_name, s.description,
                                                            s.fk_condition, s.reference,
                                                            s.location, s.fk_provider,
-                                                           s.stock, s.location2,
+                                                           s.stock, s.location2, s.stockMin,
                                                            c.id as cid, c.name as cname,
                                                            e.id as condId, e.condition_name,
                                                            pro.id as proId, pro.provider_name 
@@ -66,7 +66,8 @@ class StockManager{
                 reference = :reference, 
                 location = :location, 
                 fk_provider = :provider, 
-                stock = :stock, 
+                stock = :stock,
+                stockMin = :stockMin,
                 location2 = :location2
             WHERE id = :id
         ");
@@ -79,6 +80,7 @@ class StockManager{
         $location = $stockObject->getLocation();
         $provider = $stockObject->getProvider();
         $stock = $stockObject->getStock();
+        $stockMin = $stockObject->getStockMin();
         $location2 = $stockObject->getLocation2();
         $id = $stockObject->getId();
 
@@ -90,12 +92,13 @@ class StockManager{
         $request->bindParam(":location", $location);
         $request->bindParam(":provider", $provider);
         $request->bindParam(":stock", $stock);
+        $request->bindParam(":stockMin", $stockMin);
         $request->bindParam(":location2", $location2);
         $request->bindParam(":id", $id);
 
         $request->execute();
 
-        header("Location: /");
+        header("Location: /?controller=category");
     }
 
     /**
@@ -113,6 +116,7 @@ class StockManager{
                                location,
                                fk_provider,
                                stock,
+                               stockMin,
                                location2
                                )
                 VALUES (
@@ -123,7 +127,8 @@ class StockManager{
                         :reference, 
                         :location, 
                         :provider, 
-                        :stock, 
+                        :stock,
+                        :stockMin,
                         :location2
                         )
         ");
@@ -136,6 +141,7 @@ class StockManager{
         $location = $stockObject->getLocation();
         $provider = $stockObject->getProvider();
         $stock = $stockObject->getStock();
+        $stockMin = $stockObject->getStockMin();
         $location2 = $stockObject->getLocation2();
 
         $request->bindParam(":name", $name);
@@ -146,6 +152,7 @@ class StockManager{
         $request->bindParam(":location", $location);
         $request->bindParam(":provider", $provider);
         $request->bindParam(":stock", $stock);
+        $request->bindParam(":stockMin", $stockMin);
         $request->bindParam(":location2", $location2);
 
         $request->execute();
@@ -182,12 +189,12 @@ class StockManager{
      */
     public function getStock(): array{
         $totalStock = [];
-        $request = DB::getInstance()->prepare("SELECT product_name, stock FROM stock");
+        $request = DB::getInstance()->prepare("SELECT product_name, stock, stockMin FROM stock");
         $request->execute();
 
         $stockData = $request->fetchAll();
         foreach ($stockData as $data){
-            $totalStock[] = new Stock($data['stock'], $data['product_name']);
+            $totalStock[] = new Stock($data['stock'], $data['product_name'], $data['stockMin']);
         }
 
         return $totalStock;

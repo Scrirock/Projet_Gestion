@@ -8,6 +8,7 @@ class Stock{
 
     private ?int $stock;
     private ?string $name;
+    private ?int $stockMin;
     private ?string $reference;
     private ?string $category;
     private ?string $description;
@@ -21,6 +22,7 @@ class Stock{
      * Stock constructor.
      * @param int|null $stock
      * @param string|null $name
+     * @param int|null $stockMin
      * @param string|null $reference
      * @param string|null $category
      * @param string|null $description
@@ -30,7 +32,7 @@ class Stock{
      * @param string|null $location2
      * @param int|null $id
      */
-    public function __construct(?int $stock=null, ?string $name=null, ?string $reference=null, ?string $category=null, ?string $description=null, ?string $condition=null, ?string $provider=null, ?string $location=null, ?string $location2=null, ?int $id=null){
+    public function __construct(?int $stock=null, ?string $name=null, ?int $stockMin=null, ?string $reference=null, ?string $category=null, ?string $description=null, ?string $condition=null, ?string $provider=null, ?string $location=null, ?string $location2=null, ?int $id=null){
         $this->id = $id;
         $this->name = $name;
         $this->reference = $reference;
@@ -41,6 +43,7 @@ class Stock{
         $this->location = $location;
         $this->location2 = $location2;
         $this->stock = $stock;
+        $this->stockMin = $stockMin;
     }
 
     /**
@@ -181,6 +184,20 @@ class Stock{
      */
     public function setStock(?int $stock): void{
         $this->stock = $stock;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getStockMin(): ?int{
+        return $this->stockMin;
+    }
+
+    /**
+     * @param int|null $stockMin
+     */
+    public function setStockMin(?int $stockMin): void{
+        $this->stockMin = $stockMin;
     }
 
 }

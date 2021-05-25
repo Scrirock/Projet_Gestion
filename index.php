@@ -39,7 +39,7 @@ if(isset($_GET['controller'])) {
             $controller = new PageController();
             $controller->category($_POST);
             break;
-        case 'modifyCard':
+        case 'modifyProduct':
             $controller = new StockController();
             if (isset($_GET['id'])){
                 $controller->modify($_POST, $_GET['id']);

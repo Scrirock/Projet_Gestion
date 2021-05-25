@@ -8,6 +8,10 @@
         <input class="hasFocus" type="text" id="stock" name="stock">
     </div>
     <div class="flex">
+        <label for="stockMin">Stock Minimum: </label>
+        <input class="hasFocus" type="text" id="stockMin" name="stockMin">
+    </div>
+    <div class="flex">
         <label for="name">Nom: </label>
         <input class="hasFocus" type="text" id="name" name="name">
     </div>
