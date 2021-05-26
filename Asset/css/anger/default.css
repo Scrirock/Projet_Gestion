@@ -64,3 +64,27 @@ textarea{
     color: #868686;
     font-size: 1.5rem;
 }
+
+#containerAjax{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+#containerStock{
+    border-right: 1px solid #F22F08;
+}
+
+#containerHistory{
+    width: 25%;
+    overflow: auto;
+    height: 95vh;
+}
+
+.historyLine{
+    margin: 1rem 2rem;
+}
+
+.historyDate{
+    margin-left: 2rem;
+}

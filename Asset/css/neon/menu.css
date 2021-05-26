@@ -38,6 +38,10 @@ nav{
     width: 30%;
 }
 
+.menu{
+    width: 15rem;
+}
+
 .menu:hover{
     cursor: pointer;
 }
@@ -72,6 +76,7 @@ nav{
     letter-spacing: 4px;
     overflow: hidden;
     margin: 2rem;
+    width: auto;
 }
 
 .buttonNeon:hover{
@@ -161,4 +166,26 @@ nav{
     50%, 100%{
         bottom: 100%;
     }
+}
+
+.under{
+    position: relative;
+    top: 9rem;
+    background-color: #151515;
+    padding: 1rem;
+    display: none;
+    width: 25rem;
+}
+
+.under a{
+    display: block;
+    margin: 1rem;
+}
+
+.under a:hover{
+    text-decoration: underline;
+}
+
+.dropDown:hover .under{
+    display: block;
 }
