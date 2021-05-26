@@ -4,6 +4,7 @@
 namespace Model\stock;
 
 
+use Controller\HistoryManager;
 use Model\DB;
 use Model\Entity\Stock;
 use Model\Manager\Traits\ManagerTrait;
@@ -29,13 +30,6 @@ class StockManager{
                                                             ON s.fk_condition = e.id
                                                         INNER JOIN provider as pro
                                                             ON s.fk_provider = pro.id");
-        if ($request->execute()){
-            return $request->fetchAll();
-        }
-    }
-
-    public function getCategory(): array{
-        $request = DB::getInstance()->prepare("SELECT * FROM category");
         if ($request->execute()){
             return $request->fetchAll();
         }
@@ -162,24 +156,46 @@ class StockManager{
 
     public function deductProduct($productArray){
         foreach ($productArray as $key => $value){
-            $request = DB::getInstance()->prepare("SELECT stock FROM stock 
-                                                            WHERE product_name = :name");
-            $key = str_replace("_", " ", $key);
-            $request->bindParam(":name", $key);
-            $request->execute();
-            $stock = $request->fetch();
+            if ($value > 0){
+                $action = "nothing";
+                if ($key[0] === "-"){
+                    $action = "subtraction";
+                }
+                elseif ($key[0] === "+"){
+                    $action = "addition";
+                }
+                $key = substr($key, 1);
 
-            $request = DB::getInstance()->prepare("UPDATE stock SET stock = :newStock 
+                $request = DB::getInstance()->prepare("SELECT stock FROM stock
                                                             WHERE product_name = :name");
-            $newValue = intval(intval($stock['stock']) - intval($value));
-            $request->bindParam(":newStock", $newValue);
-            $request->bindParam(":name", $key);
-            if ($newValue < 0){
-                header("Location: /?controller=category&error");
-            }
-            else{
+                $key = str_replace("_", " ", $key);
+                $request->bindParam(":name", $key);
                 $request->execute();
-                header("Location: /?controller=category");
+                $stock = $request->fetch();
+
+                $request = DB::getInstance()->prepare("UPDATE stock SET stock = :newStock
+                                                            WHERE product_name = :name");
+                if ($action === "subtraction"){
+                    $newValue = intval(intval($stock['stock']) - intval($value));
+                    (new HistoryManager())->AddEntry(-intval($value), $key);
+                }
+                elseif ($action === "addition"){
+                    $newValue = intval(intval($stock['stock']) + intval($value));
+                    (new HistoryManager())->AddEntry(intval($value), $key);
+                }
+                else{
+                    $newValue = intval(intval($stock['stock']));
+                }
+                $request->bindParam(":newStock", $newValue);
+                $request->bindParam(":name", $key);
+                if ($newValue < 0){
+                    $request->execute();
+                    header("Location: /?controller=category&error");
+                }
+                else{
+                    $request->execute();
+                    header("Location: /?controller=category");
+                }
             }
         }
     }
@@ -199,4 +215,11 @@ class StockManager{
 
         return $totalStock;
     }
+
+    public function deleteProduct($id){
+    $request = DB::getInstance()->prepare("DELETE FROM stock WHERE id = :id");
+    $request->bindParam(':id', $id);
+    $request->execute();
+    header("Location: /?controller=category");
+}
 }

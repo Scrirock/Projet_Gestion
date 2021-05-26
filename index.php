@@ -1,5 +1,6 @@
 <?php
 
+use Controller\CategoryController;
 use Controller\HomeController;
 use Controller\PageController;
 use Controller\StockController;
@@ -11,13 +12,19 @@ require_once './Controller/Traits/RenderViewTrait.php';
 
 require_once './Model/Manager/UserManager.php';
 require_once './Model/Manager/StockManager.php';
+require_once './Model/Manager/CategoryManager.php';
+require_once './Model/Manager/HistoryManager.php';
 
 require_once './Controller/HomeController.php';
 require_once './Controller/PageController.php';
 require_once './Controller/UserController.php';
 require_once './Controller/StockController.php';
+require_once './Controller/CategoryController.php';
+require_once './Controller/HistoryController.php';
 
 require_once './Model/Entity/Stock.php';
+require_once './Model/Entity/Category.php';
+require_once './Model/Entity/History.php';
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -48,6 +55,12 @@ if(isset($_GET['controller'])) {
                 $controller->modify($_POST,1);
             }
             break;
+        case 'deleteProduct':
+            $controller = new StockController();
+            if (isset($_GET['id'])){
+                $controller->delete($_GET['id']);
+            }
+            break;
         case 'addStock':
             $controller = new StockController();
             $controller->add($_POST);
@@ -55,6 +68,25 @@ if(isset($_GET['controller'])) {
         case 'theme':
             $controller = new PageController();
             $controller->theme();
+            break;
+        case 'modifyCategory':
+            $controller = new CategoryController();
+            if (isset($_GET['id'])){
+                $controller->modify($_POST, $_GET['id']);
+            }
+            else{
+                $controller->modify($_POST,1);
+            }
+            break;
+        case 'deleteCategory':
+            $controller = new CategoryController();
+            if (isset($_GET['id'])){
+                $controller->delete($_GET['id']);
+            }
+            break;
+        case 'addCategory':
+            $controller = new CategoryController();
+            $controller->add($_POST);
             break;
     }
 }

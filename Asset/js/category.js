@@ -2,6 +2,7 @@ let stockLine = document.getElementsByClassName("stockLine");
 let categoryLine = document.getElementsByClassName("categoryLine");
 let descriptionLine = document.getElementsByClassName("stockDescription");
 let goToBasket = document.getElementsByClassName("goToBasket");
+let basketButton = document.getElementById("basketButton");
 let shoppingForm = document.getElementById("shoppingForm");
 let shoppingBasket = document.getElementById("shoppingBasket");
 let basketTitle = document.getElementById("basketTitle");
@@ -50,18 +51,31 @@ for (let addOne of goToBasket){
         let span = document.createElement("span");
         span.innerHTML = name;
         span.className = "shoppingName";
+        let subtract = document.createElement("span");
+        subtract.innerHTML = "-";
         let input = document.createElement("input");
         input.value = "0";
         input.className = "shoppingInput"
-        input.name = name;
+        input.name = "-"+name;
+        input.style.backgroundColor = "red";
+        let addition = document.createElement("span");
+        addition.innerHTML = "+";
+        let input2 = document.createElement("input");
+        input2.value = "0";
+        input2.className = "shoppingInput"
+        input2.name = "+"+name;
+        input2.style.backgroundColor = "green";
         let span2 = document.createElement("span");
         span2.innerHTML = "<i class=\"fas fa-times-circle\"></i>"
         span2.className = "shoppingDelete";
         div.appendChild(span);
+        div2.appendChild(subtract);
         div2.appendChild(input);
+        div2.appendChild(addition);
+        div2.appendChild(input2);
         div2.appendChild(span2);
         div.appendChild(div2);
-        shoppingForm.prepend(div);
+        shoppingForm.insertBefore(div, basketButton);
 
         span2.addEventListener("click", (e)=>{
             let divDeleting = e.target.parentNode.parentNode;

@@ -2,7 +2,7 @@
     include "./View/_partials/menu.view.php";
      if(isset($_GET['error'])){ ?>
          <div class="error">
-             <p>Vous ne pouvez pas enlever plus de produit qu'il n'y en a en stock</p>
+             <p>Les stock on été décompter mais certain sont passé dans le négatif. Faites attention</p>
          </div>
      <?php }
 ?>
@@ -10,7 +10,7 @@
 <div id="shoppingBasket">
     <h2 id="basketTitle"><i class="fas fa-shopping-basket" id="basketHover"></i></h2>
     <form action="" method="POST" id="shoppingForm">
-        <input type="submit" value="Décompter" class="formButton">
+        <input type="submit" value="Décompter" class="formButton" id="basketButton">
     </form>
 </div>
 
@@ -21,8 +21,11 @@
             <div class="categoryLine">
                 <div class="categoryName"> <?= $category["name"] ?>
                     <div class="icon">
-                        <span class="edit"><i class="far fa-edit"></i></span>
-                        <span class="delete"><i class="far fa-trash-alt"></i></span>
+                        <?php
+                        if(isset($_SESSION['user']) && $_SESSION['user'] === "admin"){ ?>
+                            <a href="/?controller=modifyCategory&id=<?= $category["id"] ?>" class="edit"><i class="far fa-edit"></i></a>
+                            <a href="/?controller=deleteCategory&id=<?= $category["id"] ?>" class="delete"><i class="far fa-trash-alt"></i></a>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="neonCategory"></div>
@@ -33,9 +36,12 @@
                                 <div class="stockName">
                                     <span class="onlyName"><?= $stock["product_name"] ?></span>
                                     <div class="icon">
-                                        <span class="goToBasket"><i class="fas fa-shopping-basket"></i></span>
-                                        <a href="/?controller=modifyProduct&id=<?= $stock["sid"] ?>" class="editStock"><i class="far fa-edit"></i></a>
-                                        <span class="deleteStock"><i class="far fa-trash-alt"></i></span>
+                                        <?php
+                                        if(isset($_SESSION['user']) && $_SESSION['user'] === "admin"){ ?>
+                                            <span class="goToBasket"><i class="fas fa-shopping-basket"></i></span>
+                                            <a href="/?controller=modifyProduct&id=<?= $stock["sid"] ?>" class="editStock"><i class="far fa-edit"></i></a>
+                                            <a href="/?controller=deleteProduct&id=<?= $stock["sid"] ?>" class="deleteStock"><i class="far fa-trash-alt"></i></a>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <div class="stockDescription" data-name="<?= $stock["product_name"] ?>">

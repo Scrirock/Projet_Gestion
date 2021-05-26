@@ -11,9 +11,12 @@
         </a>
         <?php
             if(isset($_SESSION['user']) && $_SESSION['user'] === "admin"){ ?>
-                <a href="?controller=addStock">
-                    <div class="menu"><div class="border">Ajouter</div></div>
-                </a>
+                <div class="dropDown menu"><div class="border">Ajouter</div>
+                    <div class="under">
+                        <a href="?controller=addStock">Un produit</a>
+                        <a href="?controller=addCategory">Une catégorie</a>
+                    </div>
+                </div>
             <?php }
         ?>
         <a href="?controller=achievement">

@@ -4,6 +4,7 @@
 namespace Controller;
 
 use Controller\Traits\RenderViewTrait;
+use Model\stock\CategoryManager;
 use Model\stock\StockManager;
 
 class PageController{
@@ -22,13 +23,12 @@ class PageController{
      * @param $field
      */
     public function category($field) {
-        $manager = new StockManager();
         if (!empty($field)){
             $productArray = $field;
-            $manager->deductProduct($productArray);
+            (new StockManager())->deductProduct($productArray);
         }
-        $stock = $manager->getAll();
-        $category = $manager->getCategory();
+        $stock = (new StockManager())->getAll();
+        $category = (new CategoryManager())->getCategory();
         $this->render('category', 'Catégorie', [
             'stock' => $stock,
             'category' => $category

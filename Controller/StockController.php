@@ -13,10 +13,6 @@ class StockController{
 
     use RenderViewTrait;
 
-    public function addStock(){
-
-    }
-
     public function modify($fields, $id){
         $stockManager = new StockManager();
         $db = new DB();
@@ -62,5 +58,9 @@ class StockController{
         }
 
         $this->render('add.stock', 'Ajouter un produit');
+    }
+
+    public function delete($id){
+        (new StockManager())->deleteProduct($id);
     }
 }
