@@ -36,10 +36,23 @@ class StockManager{
     }
 
     public function getOne(int $id): array{
-        $request = DB::getInstance()->prepare("SELECT * FROM stock 
-                                                     INNER JOIN category 
-                                                        ON stock.fk_category = category.id
-                                                     WHERE stock.id = :id");
+        $request = DB::getInstance()->prepare("SELECT 
+                                                           s.id as sid, s.fk_category,
+                                                           s.product_name, s.description,
+                                                           s.fk_condition, s.reference,
+                                                           s.location, s.fk_provider,
+                                                           s.stock, s.location2, s.stockMin,
+                                                           c.id as cid, c.name as cname,
+                                                           e.id as condId, e.condition_name,
+                                                           pro.id as proId, pro.provider_name 
+                                                      FROM stock as s
+                                                        INNER JOIN category as c
+                                                            ON s.fk_category = c.id
+                                                        INNER JOIN etat as e
+                                                            ON s.fk_condition = e.id
+                                                        INNER JOIN provider as pro
+                                                            ON s.fk_provider = pro.id
+                                                      WHERE s.id = :id");
         $request->bindParam(':id', $id);
         if ($request->execute()){
             return $request->fetchAll();
@@ -221,5 +234,30 @@ class StockManager{
         $request->bindParam(':id', $id);
         $request->execute();
         header("Location: /?controller=category");
+    }
+
+    public function getBySearch($data): array{
+        $request = DB::getInstance()->prepare("SELECT 
+                                                           s.id as sid, s.fk_category,
+                                                           s.product_name, s.description,
+                                                           s.fk_condition, s.reference,
+                                                           s.location, s.fk_provider,
+                                                           s.stock, s.location2, s.stockMin,
+                                                           c.id as cid, c.name as cname,
+                                                           e.id as condId, e.condition_name,
+                                                           pro.id as proId, pro.provider_name 
+                                                      FROM stock as s
+                                                        INNER JOIN category as c
+                                                            ON s.fk_category = c.id
+                                                        INNER JOIN etat as e
+                                                            ON s.fk_condition = e.id
+                                                        INNER JOIN provider as pro
+                                                            ON s.fk_provider = pro.id
+                                                      WHERE s.product_name LIKE :search");
+        $search = "%".$data."%";
+        $request->bindParam(':search', $search);
+        if ($request->execute()){
+            return $request->fetchAll();
+        }
     }
 }

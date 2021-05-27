@@ -192,3 +192,11 @@
 .neonCategory{
     width: 100%;
 }
+
+#oneProduct{
+    display: block;
+    padding: 2rem;
+    margin: 2rem auto;
+    border: 1px solid #23c3cf;
+    width: 35rem;
+}

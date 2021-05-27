@@ -45,6 +45,7 @@
                                     </div>
                                 </div>
                                 <div class="stockDescription" data-name="<?= $stock["product_name"] ?>">
+                                    <a href="/?controller=oneProduct&id=<?= $stock["sid"] ?>">
                                     <p class="stock">Stock: <?= $stock['stock'] ?></p>
                                     <p class="stock">Stock Minimum: <?= $stock['stockMin'] ?></p>
                                     <p class="description">Description: <?= $stock['description'] ?></p>
@@ -56,6 +57,7 @@
                                             <p class="second">2eme loca: <?= $stock['location2'] ?></p>
                                         </div>
                                     </div>
+                                    </a>
                                 </div>
                             <?php }
                         }

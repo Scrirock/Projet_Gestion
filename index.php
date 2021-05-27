@@ -103,6 +103,12 @@ if(isset($_GET['controller'])) {
             $controller = new PageController();
             $controller->adminPanel();
             break;
+        case 'oneProduct':
+            $controller = new StockController();
+            if (isset($_GET['id'])){
+                $controller->getOne($_GET['id']);
+            }
+            break;
     }
 }
 else {

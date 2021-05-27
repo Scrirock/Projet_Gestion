@@ -63,4 +63,16 @@ class StockController{
     public function delete($id){
         (new StockManager())->deleteProduct($id);
     }
+
+    public function getOne($id){
+        $this->render('oneProduct.stock', 'Un produit', [
+            'value'=> (new StockManager())->getOne($id)
+        ]);
+    }
+
+    public function getBySearch($data){
+        $this->render('search', 'Liste des produit demandé', [
+            'value'=> (new StockManager())->getBySearch($data)
+        ]);
+    }
 }

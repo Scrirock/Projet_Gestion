@@ -153,3 +153,11 @@
     height: 80vh;
     padding: 2rem 5rem;
 }
+
+#oneProduct{
+    display: block;
+    padding: 2rem;
+    margin: 2rem auto;
+    border: 1px solid #F22F08;
+    width: 35rem;
+}

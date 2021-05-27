@@ -66,3 +66,21 @@ function showHistory(){
 }
 showHistory();
 setInterval(showHistory, 360000);
+
+function search(e){
+    if (e.key === "Enter"){
+        let xhrRequest = new XMLHttpRequest();
+
+        const request = {
+            'request': requestInput.value,
+        };
+
+        xhrRequest.open('POST', './api/searchAPI.php');
+        xhrRequest.setRequestHeader('Content-Type', 'application/json');
+        xhrRequest.send(JSON.stringify(request));
+        requestInput.value = "";
+    }
+}
+
+const requestInput = document.getElementById('searchInput');
+requestInput.addEventListener("keyup", (e) => search(e));
