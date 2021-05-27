@@ -18,7 +18,7 @@
 
     <?= $html ?>
 
-    <script src="/Asset/js/ajaxHomePage.js"></script>
+    <script src="/Asset/js/default.js"></script>
     <script src="/Asset/js/achievements.js" type="module"></script>
     <script src="/Asset/js/easterEgg.js" type="module"></script>
 </body>

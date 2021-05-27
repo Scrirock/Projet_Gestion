@@ -2,8 +2,8 @@
 nav{
     font-size: 2.5rem;
     width: 100%;
-    height: 9rem;
-    padding: 2.5rem;
+    height: 10rem;
+    padding: 4rem 2.5rem 2.5rem 2.5rem;
     background-color: #212027;
     color: #a73325;
 
@@ -30,7 +30,7 @@ nav{
 }
 
 #other{
-    width: 30%;
+    width: 35%;
 }
 
 .menu:hover{
@@ -51,17 +51,18 @@ nav{
     transition: width .1s linear;
     border-bottom: 1px solid #F22F08;
     position: absolute;
-    top: 2.5rem;
+    top: 4rem;
 }
 
 .twoWord{
-    top: 1.2rem;
+    top: 2rem;
 }
 
 #connexionButton{
     border: 2px solid #F22F08;
     padding: 1rem;
-    width: auto;
+    width: 17rem;
+    margin: auto;
 }
 
 #searchBar input{
@@ -88,4 +89,15 @@ nav{
 
 .dropDown:hover .under{
     display: block;
+}
+
+#divConnexion{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+#divConnexion > p{
+    font-size: 1.7rem;
+    letter-spacing: initial;
+    text-transform: initial;
 }

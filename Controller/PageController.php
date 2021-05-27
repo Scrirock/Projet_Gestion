@@ -6,6 +6,7 @@ namespace Controller;
 use Controller\Traits\RenderViewTrait;
 use Model\stock\CategoryManager;
 use Model\stock\StockManager;
+use Model\User\UserManager;
 
 class PageController{
 
@@ -27,15 +28,20 @@ class PageController{
             $productArray = $field;
             (new StockManager())->deductProduct($productArray);
         }
-        $stock = (new StockManager())->getAll();
-        $category = (new CategoryManager())->getCategory();
+
         $this->render('category', 'Catégorie', [
-            'stock' => $stock,
-            'category' => $category
+            'stock' => (new StockManager())->getAll(),
+            'category' => (new CategoryManager())->getCategory()
         ]);
     }
 
     public function theme(){
         $this->render('theme', 'Thème');
+    }
+
+    public function adminPanel(){
+        $this->render('adminPanel', 'Admin Zone', [
+            'user' => (new UserManager())->getAll()
+        ]);
     }
 }

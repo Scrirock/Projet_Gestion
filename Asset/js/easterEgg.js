@@ -16,13 +16,13 @@ function achievementPage(e){
 
 document.addEventListener("keydown", (e) => {
     if (e.key === "Control"){
-        connexionButton.addEventListener("click", (e)=>{achievementPage(e)});
+        connexionButton.addEventListener("click", achievementPage);
     }
 });
 
 document.addEventListener("keyup", (e) => {
     if (e.key === "Control"){
-        connexionButton.removeEventListener("click", (e)=>{achievementPage(e)});
+        connexionButton.removeEventListener("click", achievementPage);
     }
 });
 

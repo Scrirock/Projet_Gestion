@@ -217,9 +217,9 @@ class StockManager{
     }
 
     public function deleteProduct($id){
-    $request = DB::getInstance()->prepare("DELETE FROM stock WHERE id = :id");
-    $request->bindParam(':id', $id);
-    $request->execute();
-    header("Location: /?controller=category");
-}
+        $request = DB::getInstance()->prepare("DELETE FROM stock WHERE id = :id");
+        $request->bindParam(':id', $id);
+        $request->execute();
+        header("Location: /?controller=category");
+    }
 }

@@ -22,6 +22,7 @@ require_once './Controller/StockController.php';
 require_once './Controller/CategoryController.php';
 require_once './Controller/HistoryController.php';
 
+require_once './Model/Entity/User.php';
 require_once './Model/Entity/Stock.php';
 require_once './Model/Entity/Category.php';
 require_once './Model/Entity/History.php';
@@ -51,9 +52,6 @@ if(isset($_GET['controller'])) {
             if (isset($_GET['id'])){
                 $controller->modify($_POST, $_GET['id']);
             }
-            else{
-                $controller->modify($_POST,1);
-            }
             break;
         case 'deleteProduct':
             $controller = new StockController();
@@ -74,9 +72,6 @@ if(isset($_GET['controller'])) {
             if (isset($_GET['id'])){
                 $controller->modify($_POST, $_GET['id']);
             }
-            else{
-                $controller->modify($_POST,1);
-            }
             break;
         case 'deleteCategory':
             $controller = new CategoryController();
@@ -87,6 +82,26 @@ if(isset($_GET['controller'])) {
         case 'addCategory':
             $controller = new CategoryController();
             $controller->add($_POST);
+            break;
+        case 'addUser':
+            $controller = new UserController();
+            $controller->addUser($_POST);
+            break;
+        case 'modifyUser':
+            $controller = new UserController();
+            if (isset($_GET['id'])){
+                $controller->modifyUser($_POST, $_GET['id']);
+            }
+            break;
+        case 'deleteUser':
+            $controller = new UserController();
+            if (isset($_GET['id'])){
+                $controller->deleteUser($_GET['id']);
+            }
+            break;
+        case 'adminPanel':
+            $controller = new PageController();
+            $controller->adminPanel();
             break;
     }
 }

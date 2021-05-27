@@ -1,8 +1,8 @@
 <?php
     include "View/_partials/menu.view.php";
 
-    if(isset($_SESSION['error'])){
-        echo "<div class='error'>".$_SESSION['error']."</div>";
+    if(isset($_SESSION['error'])) {
+        echo "<div id='error'>" . $_SESSION['error'] . "</div>";
         session_destroy();
         session_start();
     }
@@ -25,6 +25,7 @@
             <input type="password" id="password" name="password" class="hasFocus">
         </div>
         <div id="inputSubmit"><input type="submit" value="Se connecter" id="validate" class="menu"></div>
+        <a href="/?controller=addUser" id="inscription">Pas encore inscrit ?</a>
     </form>
 </div>
 <script src="/Asset/js/clickButtonConnexion.js" type="module"></script>

@@ -128,11 +128,6 @@
     display: inline-block;
 }
 
-.error{
-    padding: 1rem;
-    background-color: red;
-}
-
 .color{
     display: inline-block;
     width: 15px;

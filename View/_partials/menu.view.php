@@ -10,13 +10,16 @@
             <div class="menu"><div class="border">Thèmes</div></div>
         </a>
         <?php
-            if(isset($_SESSION['user']) && $_SESSION['user'] === "admin"){ ?>
+            if(isset($_SESSION['role']) && $_SESSION['role'] === "admin"){ ?>
                 <div class="dropDown menu"><div class="border">Ajouter</div>
                     <div class="under">
                         <a href="?controller=addStock">Un produit</a>
                         <a href="?controller=addCategory">Une catégorie</a>
                     </div>
                 </div>
+                <a href="/?controller=adminPanel">
+                    <div class="adminPanel menu"><div class="border twoWord">Admin Zone</div></div>
+                </a>
             <?php }
         ?>
         <a href="?controller=achievement">
@@ -24,13 +27,16 @@
         </a>
     </div>
     <div id="other">
-        <a href="?controller=connexion" class="buttonNeon menu" id="connexionButton">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Connexion
-        </a>
+        <div id="divConnexion">
+            <a href="?controller=connexion" class="buttonNeon menu" id="connexionButton">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Connexion
+            </a>
+            <?php if (isset($_SESSION['name'])) echo "<p>Vous êtes connecté en temps que ".$_SESSION['name']."</p>" ?>
+        </div>
         <div id="searchBar">
             <input type="text" placeholder="Rechercher" id="searchInput">
         </div>

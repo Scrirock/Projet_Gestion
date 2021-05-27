@@ -1,5 +1,6 @@
 <?php
     include "./View/_partials/menu.view.php";
+    if(isset($_SESSION['role']) && $_SESSION['role'] === "admin"){
 ?>
 
 <h1 class="littleTitle">Modifier le produit</h1>
@@ -70,4 +71,8 @@
         </form>
 <?php
     }
+}
+}
+else{
+    echo "<div id='error'>vous n'avez pas la permission d'être ici</div>";
 }

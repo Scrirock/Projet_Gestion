@@ -11,12 +11,12 @@ class User{
 
     /**
      * User constructor.
-     * @param int|null $id
      * @param string|null $name
      * @param string|null $password
      * @param int $role
+     * @param int|null $id
      */
-    public function __construct(int $id = null, string $name = null, string $password = null, int $role = 0){
+    public function __construct(string $name = null, string $password = null, int $role=6, int $id = null){
         $this->id = $id;
         $this->name = $name;
         $this->password = $password;

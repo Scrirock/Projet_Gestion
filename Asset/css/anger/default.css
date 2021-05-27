@@ -78,7 +78,7 @@ textarea{
 #containerHistory{
     width: 25%;
     overflow: auto;
-    height: 95vh;
+    height: 80vh;
 }
 
 .historyLine{
@@ -87,4 +87,14 @@ textarea{
 
 .historyDate{
     margin-left: 2rem;
+}
+
+#error{
+    padding: 1rem;
+    background-color: red;
+}
+
+#succeed{
+    padding: 1rem;
+    background-color: #34bd20;
 }

@@ -1,0 +1,35 @@
+#cardContainer{
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+}
+
+.userLine{
+    background-color: #2E303E;
+    border: 1px solid #AAAAAA;
+    color: #AAAAAA;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1rem 5rem;
+}
+
+.username{
+    font-size: 3rem;
+}
+
+.deleteUser{
+    color: red;
+    margin-right: 2.5rem;
+}
+
+.editUser{
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+}
+
+.editUser:hover, .deleteUser:hover{
+    cursor: pointer;
+    font-size: 2.3rem;
+}

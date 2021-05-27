@@ -22,7 +22,7 @@
                 <div class="categoryName"> <?= $category["name"] ?>
                     <div class="icon">
                         <?php
-                        if(isset($_SESSION['user']) && $_SESSION['user'] === "admin"){ ?>
+                        if(isset($_SESSION['role']) && $_SESSION['role'] === "admin"){ ?>
                             <a href="/?controller=modifyCategory&id=<?= $category["id"] ?>" class="edit"><i class="far fa-edit"></i></a>
                             <a href="/?controller=deleteCategory&id=<?= $category["id"] ?>" class="delete"><i class="far fa-trash-alt"></i></a>
                         <?php } ?>
@@ -37,7 +37,7 @@
                                     <span class="onlyName"><?= $stock["product_name"] ?></span>
                                     <div class="icon">
                                         <?php
-                                        if(isset($_SESSION['user']) && $_SESSION['user'] === "admin"){ ?>
+                                        if(isset($_SESSION['role']) && $_SESSION['role'] === "admin"){ ?>
                                             <span class="goToBasket"><i class="fas fa-shopping-basket"></i></span>
                                             <a href="/?controller=modifyProduct&id=<?= $stock["sid"] ?>" class="editStock"><i class="far fa-edit"></i></a>
                                             <a href="/?controller=deleteProduct&id=<?= $stock["sid"] ?>" class="deleteStock"><i class="far fa-trash-alt"></i></a>
