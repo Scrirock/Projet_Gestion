@@ -12,3 +12,12 @@ if (succeed !== null){
         succeed.style.display = "none";
     }, 3000)
 }
+
+function search(e){
+    if (e.key === "Enter"){
+        window.location = "/?controller=search&r="+requestInput.value;
+    }
+}
+
+const requestInput = document.getElementById('searchInput');
+requestInput.addEventListener("keyup", (e) => search(e));

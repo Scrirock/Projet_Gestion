@@ -154,10 +154,15 @@
     padding: 2rem 5rem;
 }
 
-#oneProduct{
-    display: block;
-    padding: 2rem;
-    margin: 2rem auto;
+.oneProduct{
     border: 1px solid #F22F08;
-    width: 35rem;
+    padding: 1rem;
+    margin: 2rem ;
+    width: 45rem;
+    color: #a73325;
+}
+
+#searchContainer{
+    display: flex;
+    flex-flow: row wrap;
 }

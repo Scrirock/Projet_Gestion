@@ -35,7 +35,7 @@
                 <span></span>
                 Connexion
             </a>
-            <?php if (isset($_SESSION['name'])) echo "<p>Vous êtes connecté en temps que ".$_SESSION['name']."</p>" ?>
+            <?php if (isset($_SESSION['name'])) echo "<p>Vous êtes connecté en tant que ".$_SESSION['name']."</p>" ?>
         </div>
         <div id="searchBar">
             <input type="text" placeholder="Rechercher" id="searchInput">
