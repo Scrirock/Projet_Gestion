@@ -25,7 +25,7 @@
             <input type="password" id="password" name="password" class="hasFocus">
         </div>
         <div id="inputSubmit"><input type="submit" value="Se connecter" id="validate" class="menu"></div>
-        <a href="/?controller=addUser" id="inscription">Pas encore inscrit ?</a>
+        <div><a href="/?controller=addUser" id="inscription">Pas encore inscrit ?</a></div>
     </form>
 </div>
 <script src="/Asset/js/clickButtonConnexion.js" type="module"></script>

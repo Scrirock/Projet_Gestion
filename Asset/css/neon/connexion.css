@@ -33,7 +33,7 @@
     justify-content: space-between;
 }
 
-#inputSubmit{
+#inputSubmit, #inscription{
     justify-content: center;
 }
 
@@ -52,4 +52,8 @@
     margin: 5rem auto;
     width: 15rem;
     background-color: #e94d48;
+}
+
+#inscription{
+    margin: auto
 }
