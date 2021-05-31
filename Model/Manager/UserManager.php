@@ -91,6 +91,11 @@ class UserManager {
         }
     }
 
+    /**
+     * Avoid an user to have the same pseudo of another one
+     * @param $name
+     * @return bool
+     */
     public function checkUserName($name): bool{
         $request = DB::getInstance()->prepare("SELECT username FROM user");
         $request->execute();
@@ -105,6 +110,10 @@ class UserManager {
         return $check;
     }
 
+    /**
+     * Add a user into the database
+     * @param User $user
+     */
     public function addUser(User $user){
         if ($this->checkUserName($user->getName())){
             $request = DB::getInstance()->prepare("
@@ -138,6 +147,10 @@ class UserManager {
         }
     }
 
+    /**
+     * Modify an user
+     * @param User $user
+     */
     public function modifyUser(User $user){
         $request = DB::getInstance()->prepare("
             UPDATE user SET role_fk = :role,
@@ -163,6 +176,10 @@ class UserManager {
         }
     }
 
+    /**
+     * Delete an user
+     * @param $id
+     */
     public function deleteUser($id){
         $request = DB::getInstance()->prepare("DELETE FROM user WHERE id = :id");
         $request->bindParam(':id', $id);
@@ -170,6 +187,10 @@ class UserManager {
         header("Location: /?controller=adminPanel");
     }
 
+    /**
+     * Return all the user
+     * @return array
+     */
     public function getAll(): array{
         $request = DB::getInstance()->prepare("
             SELECT u.id as uid,

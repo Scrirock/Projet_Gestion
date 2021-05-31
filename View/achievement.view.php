@@ -71,3 +71,5 @@
     </tr>
     </tbody>
 </table>
+
+<?php include "./View/_partials/footer.view.php"; ?>

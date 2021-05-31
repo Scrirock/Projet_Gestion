@@ -10,6 +10,10 @@ class HistoryManager{
 
     use ManagerTrait;
 
+    /**
+     * Return all the history
+     * @return array
+     */
     public function getHistory(): array{
         $request = DB::getInstance()->prepare("SELECT * FROM history");
         if ($request->execute()){
@@ -22,6 +26,11 @@ class HistoryManager{
         }
     }
 
+    /**
+     * Add into the data base a new change in the stock
+     * @param $difference
+     * @param $name
+     */
     public function AddEntry($difference, $name){
         $request = DB::getInstance()->prepare("INSERT INTO history (difference, history_product_name)
                                                         VALUES (:difference, :name)");

@@ -35,10 +35,16 @@ class PageController{
         ]);
     }
 
+    /**
+     * Show the theme page
+     */
     public function theme(){
         $this->render('theme', 'Thème');
     }
 
+    /**
+     * Show the admin zone page
+     */
     public function adminPanel(){
         $this->render('adminPanel', 'Admin Zone', [
             'user' => (new UserManager())->getAll()

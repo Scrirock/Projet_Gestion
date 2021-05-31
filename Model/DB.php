@@ -10,13 +10,12 @@ class DB {
 
 
     public function __construct(){
-        $server = 'localhost';
         $user = 'root';
         $password = '';
         $database = 'gestion';
 
         try {
-            self::$dbInstance = new PDO("mysql:host=$server;dbname=$database;charset=utf8", $user, $password);
+            self::$dbInstance = new PDO("mysql:host=localhost;dbname=$database;charset=utf8", $user, $password);
             self::$dbInstance->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             self::$dbInstance->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         }
@@ -26,7 +25,7 @@ class DB {
     }
 
     /**
-     * make a safe string
+     * Make a safe string
      * @param $data
      * @return string
      */
@@ -51,7 +50,7 @@ class DB {
     }
 
     /**
-     * we prevent letting other developers clone the object
+     * Prevent letting other developers clone the object
      */
     public function __clone(){}
 }

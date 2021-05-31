@@ -5,4 +5,6 @@
     <div id="containerStock"></div>
     <div id="containerHistory"></div>
 </div>
+
+<?php include "./View/_partials/footer.view.php"; ?>
 <script src="/Asset/js/ajaxHomePage.js"></script>

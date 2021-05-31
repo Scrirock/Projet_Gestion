@@ -10,4 +10,5 @@
     Neon Theme
 </div>
 
+<?php include "./View/_partials/footer.view.php"; ?>
 <script src="/Asset/js/theme.js" type="module"></script>

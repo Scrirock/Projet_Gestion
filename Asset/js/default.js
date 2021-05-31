@@ -1,6 +1,8 @@
 const error = document.getElementById('error');
 const succeed = document.getElementById('succeed');
-
+/**
+ * Prevent the error and succeed message to stay too long
+ */
 if (error !== null){
     setTimeout(()=>{
         error.style.display = "none";
@@ -13,6 +15,10 @@ if (succeed !== null){
     }, 3000)
 }
 
+/**
+ * Change the url with the search bar content
+ * @param e
+ */
 function search(e){
     if (e.key === "Enter"){
         window.location = "/?controller=search&r="+requestInput.value;

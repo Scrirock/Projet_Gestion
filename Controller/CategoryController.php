@@ -12,6 +12,11 @@ class CategoryController{
 
     use RenderViewTrait;
 
+    /**
+     * Modify the category by it's id
+     * @param $fields
+     * @param $id
+     */
     public function modify($fields, $id){
         $categoryManager = new CategoryManager();
         if(isset($fields['name'])) {
@@ -27,6 +32,10 @@ class CategoryController{
         ]);
     }
 
+    /**
+     * Add a category
+     * @param $fields
+     */
     public function add($fields){
         $categoryManager = new CategoryManager();
         if(isset($fields['name'])) {
@@ -39,6 +48,10 @@ class CategoryController{
         $this->render('add.category', 'Ajouter une catégorie');
     }
 
+    /**
+     * Delete a category by it's id
+     * @param $id
+     */
     public function delete($id){
         (new CategoryManager())->deleteCategory($id);
     }

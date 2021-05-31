@@ -1,3 +1,6 @@
+/**
+ * Use AJAX to show all the product and their stock
+ */
 function showProduct(){
     let xhr = new XMLHttpRequest();
     xhr.onload = function() {
@@ -35,6 +38,9 @@ function showProduct(){
 showProduct();
 setInterval(showProduct, 360000);
 
+/**
+ * Use AJAX to show the history of each change in the stock
+ */
 function showHistory(){
     let xhr2 = new XMLHttpRequest();
     xhr2.onload = function() {

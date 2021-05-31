@@ -28,4 +28,5 @@
         <div><a href="/?controller=addUser" id="inscription">Pas encore inscrit ?</a></div>
     </form>
 </div>
+<?php include "./View/_partials/footer.view.php"; ?>
 <script src="/Asset/js/clickButtonConnexion.js" type="module"></script>

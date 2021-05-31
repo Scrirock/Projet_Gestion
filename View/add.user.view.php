@@ -27,3 +27,5 @@ else{
         <input type="submit" value="S'inscrire" class="formButton">
     </div>
 </form>
+
+<?php include "./View/_partials/footer.view.php"; ?>

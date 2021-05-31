@@ -13,6 +13,10 @@ class StockManager{
 
     use ManagerTrait;
 
+    /**
+     * Return all product
+     * @return array
+     */
     public function getAll(): array{
         $request = DB::getInstance()->prepare("SELECT 
                                                            s.id as sid, s.fk_category,
@@ -35,6 +39,11 @@ class StockManager{
         }
     }
 
+    /**
+     * Return one product by it's id
+     * @param int $id
+     * @return array
+     */
     public function getOne(int $id): array{
         $request = DB::getInstance()->prepare("SELECT 
                                                            s.id as sid, s.fk_category,
@@ -60,7 +69,7 @@ class StockManager{
     }
 
     /**
-     * Modify a product of the database
+     * Modify a product in the database
      * @param Stock $stockObject
      */
     public function modify(Stock $stockObject){
@@ -167,6 +176,10 @@ class StockManager{
         header("Location: /");
     }
 
+    /**
+     * Change the stock of a product
+     * @param $productArray
+     */
     public function deductProduct($productArray){
         foreach ($productArray as $key => $value){
             if ($value > 0){
@@ -214,6 +227,7 @@ class StockManager{
     }
 
     /**
+     * Return an array of product
      * @return array
      */
     public function getStock(): array{
@@ -229,6 +243,10 @@ class StockManager{
         return $totalStock;
     }
 
+    /**
+     * Delete a product by it's id
+     * @param $id
+     */
     public function deleteProduct($id){
         $request = DB::getInstance()->prepare("DELETE FROM stock WHERE id = :id");
         $request->bindParam(':id', $id);
@@ -236,6 +254,11 @@ class StockManager{
         header("Location: /?controller=category");
     }
 
+    /**
+     * Return all the product who match the search
+     * @param $data
+     * @return array
+     */
     public function getBySearch($data): array{
         $request = DB::getInstance()->prepare("SELECT 
                                                            s.id as sid, s.fk_category,

@@ -13,6 +13,11 @@ class StockController{
 
     use RenderViewTrait;
 
+    /**
+     * Modify a product by it's id
+     * @param $fields
+     * @param $id
+     */
     public function modify($fields, $id){
         $stockManager = new StockManager();
         $db = new DB();
@@ -38,6 +43,10 @@ class StockController{
         ]);
     }
 
+    /**
+     * Add a product
+     * @param $fields
+     */
     public function add($fields){
         $stockManager = new StockManager();
         $db = new DB();
@@ -60,10 +69,18 @@ class StockController{
         $this->render('add.stock', 'Ajouter un produit');
     }
 
+    /**
+     * Delete a product by it's id
+     * @param $id
+     */
     public function delete($id){
         (new StockManager())->deleteProduct($id);
     }
 
+    /**
+     * Show a list of any product asked from the search bar
+     * @param $data
+     */
     public function getBySearch($data){
         $this->render('search', 'Liste des produits demandé', [
             'value'=> (new StockManager())->getBySearch($data),

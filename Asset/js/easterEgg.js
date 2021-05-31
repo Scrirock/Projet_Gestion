@@ -9,6 +9,10 @@ if(localStorage.getItem('theme') === null){
 }
 link.href = "Asset/css/"+localStorage.getItem('theme')+".css";
 
+/**
+ * Show the achievement menu
+ * @param e
+ */
 function achievementPage(e){
     e.preventDefault();
     document.getElementById("achievementPage").style.display = "initial";
@@ -26,9 +30,13 @@ document.addEventListener("keyup", (e) => {
     }
 });
 
+
 const code = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
 let i = 0;
 function checkKey(e){
+    /**
+     * Check if th user enter correctly the konami code
+     */
     if(e.key === code[i]){
         i++;
     }
@@ -41,6 +49,9 @@ function checkKey(e){
         achievement("Les mini-jeux")
     }
 
+    /**
+     * Show an image of a pc if the content of the search barr is PC
+     */
     if (e.key === "Enter"){
         if (searchInput.value === "PC"){
             searchInput.value = "";

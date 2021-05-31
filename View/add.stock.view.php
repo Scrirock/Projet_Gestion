@@ -72,3 +72,5 @@
 else{
     echo "<div id='error'>vous n'avez pas la permission d'être ici</div>";
 }
+
+include "./View/_partials/footer.view.php";

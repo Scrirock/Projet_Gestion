@@ -68,4 +68,5 @@
         }
     } ?>
 </div>
+<?php include "./View/_partials/footer.view.php"; ?>
 <script src="/Asset/js/category.js"></script>

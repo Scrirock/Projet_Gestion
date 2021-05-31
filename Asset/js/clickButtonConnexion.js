@@ -4,6 +4,9 @@ const clickConnexionButton = document.getElementById('connexionButton');
 const divClick = document.getElementById('divClick');
 let clickNumber = 0;
 
+/**
+ * Add a little easter egg. Count the number of click on the connexion button and break it
+ */
 clickConnexionButton.addEventListener('click', (e)=>{
     e.preventDefault();
     clickNumber++;

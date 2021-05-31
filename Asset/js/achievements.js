@@ -1,3 +1,7 @@
+/**
+ * Show the unlock achievement
+ * @param unlock
+ */
 export function achievement(unlock){
     const littleBox = document.getElementById('achievement');
     const unlockP = document.getElementById('unlock');

@@ -11,6 +11,10 @@ class UserController{
 
     use RenderViewTrait;
 
+    /**
+     * Check the user's connexion and role
+     * @param $fields
+     */
     public function connexion($fields){
         if (isset($fields['name'], $fields['password'])){
             $name = (new DB)->sanitize($fields['name']);
@@ -69,6 +73,10 @@ class UserController{
         $this->render('connexion', 'Connexion');
     }
 
+    /**
+     * Add an user
+     * @param $fields
+     */
     public function addUser($fields){
         $db = new DB();
         if(isset($fields['username'], $fields['password'])) {
@@ -82,6 +90,11 @@ class UserController{
         $this->render('add.user', "S'inscrire");
     }
 
+    /**
+     * Modify an user by it's id
+     * @param $fields
+     * @param $id
+     */
     public function modifyUser($fields, $id){
         if(isset($fields['role'], $fields['name'])) {
             $role = (new DB())->sanitize($fields['role']);
@@ -96,6 +109,10 @@ class UserController{
         ]);
     }
 
+    /**
+     * Delete an user by it's id
+     * @param $id
+     */
     public function deleteUser($id){
         (new UserManager())->deleteUser($id);
     }

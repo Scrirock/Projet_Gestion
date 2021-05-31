@@ -26,7 +26,7 @@ class CategoryManager{
     }
 
     /**
-     * Modify a category of the database
+     * Modify a category
      * @param Category $categoryObject
      */
     public function modify(Category $categoryObject){
@@ -63,7 +63,10 @@ class CategoryManager{
         header("Location: /");
     }
 
-
+    /**
+     * Delete a category by it's id
+     * @param $id
+     */
     public function deleteCategory($id){
         $request = DB::getInstance()->prepare("DELETE FROM category WHERE id = :id");
         $request->bindParam(':id', $id);
@@ -71,6 +74,10 @@ class CategoryManager{
         header("Location: /?controller=category");
     }
 
+    /**
+     * Return all the category
+     * @return array
+     */
     public function getCategory(): array{
         $request = DB::getInstance()->prepare("SELECT * FROM category");
         if ($request->execute()){

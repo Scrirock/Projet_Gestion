@@ -7,6 +7,9 @@ let shoppingForm = document.getElementById("shoppingForm");
 let shoppingBasket = document.getElementById("shoppingBasket");
 let basketTitle = document.getElementById("basketTitle");
 
+/**
+ * Extend the product name one click
+ */
 for (let line of categoryLine){
     if (line.hasChildNodes()) {
         line.addEventListener("click", (e)=>{
@@ -24,6 +27,9 @@ for (let line of categoryLine){
     }
 }
 
+/**
+ * Extend the product information one click
+ */
 for (let line of stockLine){
     if (line.hasChildNodes){
         for (let child of line.childNodes){
@@ -41,6 +47,9 @@ for (let line of stockLine){
     }
 }
 
+/**
+ * Add the select product into a shopping basket
+ */
 for (let addOne of goToBasket){
     addOne.addEventListener("click", (e)=>{
         let name = e.target.parentNode.parentNode.previousSibling.previousSibling.innerHTML;
@@ -86,6 +95,10 @@ for (let addOne of goToBasket){
     });
 }
 
+/**
+ * Extend the shopping basket on click and minimize it if already extend
+ * @type {boolean}
+ */
 let clickCheck = false;
 basketTitle.addEventListener("click", ()=>{
     if (clickCheck){

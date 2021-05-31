@@ -22,3 +22,4 @@
         <?php }
         echo "</div>";
     }
+include "./View/_partials/footer.view.php";
