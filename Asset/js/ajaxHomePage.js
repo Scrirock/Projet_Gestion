@@ -65,6 +65,11 @@ function showHistory(){
             historyLine.append(p);
             divHistory.prepend(historyLine);
         });
+
+        let historyTitle = document.createElement("h2");
+        historyTitle.className = "littleTitle";
+        historyTitle.innerHTML = "Historique des modifications";
+        divHistory.prepend(historyTitle);
     };
 
     xhr2.open('GET', './api/historyAPI.php');

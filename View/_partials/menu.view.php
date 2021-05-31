@@ -9,6 +9,9 @@
         <a href="?controller=theme">
             <div class="menu"><div class="border">Thèmes</div></div>
         </a>
+        <a href="?controller=toDoList">
+            <div class="menu"><div class="border twoWord">ToDo List</div></div>
+        </a>
         <?php
             if(isset($_SESSION['role']) && $_SESSION['role'] === "admin"){ ?>
                 <div class="dropDown menu"><div class="border">Ajouter</div>

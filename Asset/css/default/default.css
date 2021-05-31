@@ -6,12 +6,16 @@
 
 html {
     font-size: 62.5%;
+    height: 100%;
 }
 
 body {
+    min-height: 100%;
     width: 100%;
     font-size: 2rem;
     background-color: #848192;
+    position: relative;
+    padding-bottom: 10vh;
 }
 
 a{
@@ -66,10 +70,11 @@ textarea{
     font-size: 1.5rem;
 }
 
-#containerAjax{
+#containerHomePage{
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    height: 90vh;
 }
 
 #containerStock{
@@ -77,9 +82,9 @@ textarea{
 }
 
 #containerHistory{
-    width: 25%;
     overflow: auto;
-    height: 80vh;
+    height: 90vh;
+    width: 23%;
 }
 
 .historyLine{
@@ -111,4 +116,35 @@ textarea{
     background-color: #2E303E;
     position: absolute;
     bottom: 0;
+}
+
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+}
+::-webkit-scrollbar-thumb {
+    background: #AAAAAA;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+    background: #000000;
+}
+::-webkit-scrollbar-track {
+    background: #212027;
+}
+::-webkit-scrollbar-track:hover {
+    background: #212027;
+}
+::-webkit-scrollbar-track:active {
+    background: #212027;
+}
+::-webkit-scrollbar-corner {
+    background: transparent;
 }
