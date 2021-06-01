@@ -1,0 +1,24 @@
+#todoListContainer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 2rem auto;
+    padding: 2rem;
+    width: 100%;
+}
+
+.littleContainer{
+    border: 2px solid #F22F08;
+    background-color: #a73325;
+    padding: 2rem;
+}
+
+.titleList{
+    font-size: 3rem;
+    text-align: center;
+    border-bottom: 1px solid #F22F08;
+}
+
+.contentList{
+    padding-top: 5rem;
+}

@@ -4,6 +4,7 @@ use Controller\CategoryController;
 use Controller\HomeController;
 use Controller\PageController;
 use Controller\StockController;
+use Controller\ToDoListController;
 use Controller\UserController;
 
 require_once './Model/DB.php';
@@ -14,6 +15,7 @@ require_once './Model/Manager/UserManager.php';
 require_once './Model/Manager/StockManager.php';
 require_once './Model/Manager/CategoryManager.php';
 require_once './Model/Manager/HistoryManager.php';
+require_once './Model/Manager/ListManager.php';
 
 require_once './Controller/HomeController.php';
 require_once './Controller/PageController.php';
@@ -21,11 +23,13 @@ require_once './Controller/UserController.php';
 require_once './Controller/StockController.php';
 require_once './Controller/CategoryController.php';
 require_once './Controller/HistoryController.php';
+require_once './Controller/ToDoListController.php';
 
 require_once './Model/Entity/User.php';
 require_once './Model/Entity/Stock.php';
 require_once './Model/Entity/Category.php';
 require_once './Model/Entity/History.php';
+require_once './Model/Entity/ToDoList.php';
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -108,7 +112,25 @@ if(isset($_GET['controller'])) {
             if (isset($_GET['r'])){
                 $controller->getBySearch($_GET['r']);
             }
-
+        case 'toDoList':
+            $controller = new ToDoListController();
+            $controller->toDoList();
+            break;
+        case 'modifyList':
+            $controller = new ToDoListController();
+            if (isset($_GET['id'])){
+                $controller->modifyList($_POST, $_GET['id']);
+            }
+            break;
+        case 'deleteList':
+            $controller = new ToDoListController();
+            if (isset($_GET['id'])){
+                $controller->deleteList($_GET['id']);
+            }
+            break;
+        case 'addList':
+            $controller = new ToDoListController();
+            $controller->addList($_POST);
             break;
     }
 }

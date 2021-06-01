@@ -18,6 +18,7 @@
                     <div class="under">
                         <a href="?controller=addStock">Un produit</a>
                         <a href="?controller=addCategory">Une catégorie</a>
+                        <a href="?controller=addList">Une TODO liste</a>
                     </div>
                 </div>
                 <a href="/?controller=adminPanel">
