@@ -1,4 +1,5 @@
 <nav>
+    <i class="fas fa-bars" id="menuBar"></i>
     <div id="categoryMenu">
         <a href="/">
             <div class="menu"><div class="border">Acceuil</div></div>
@@ -14,6 +15,9 @@
         </a>
         <?php
             if(isset($_SESSION['role']) && $_SESSION['role'] === "admin"){ ?>
+                <a href="/?controller=adminPanel">
+                    <div class="adminPanel menu"><div class="border twoWord">Admin Zone</div></div>
+                </a>
                 <div class="dropDown menu"><div class="border">Ajouter</div>
                     <div class="under">
                         <a href="?controller=addStock">Un produit</a>
@@ -21,9 +25,6 @@
                         <a href="?controller=addList">Une TODO liste</a>
                     </div>
                 </div>
-                <a href="/?controller=adminPanel">
-                    <div class="adminPanel menu"><div class="border twoWord">Admin Zone</div></div>
-                </a>
             <?php }
         ?>
         <a href="?controller=achievement">

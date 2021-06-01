@@ -111,13 +111,15 @@ textarea{
 }
 
 #containerStock{
+    width: 77%;
+    padding: 2rem 5rem;
     border-right: 1px solid #23c3cf;
 }
 
 #containerHistory{
     overflow: auto;
-    height: 90vh;
     width: 23%;
+    min-width: 25rem;
 }
 
 .historyLine{

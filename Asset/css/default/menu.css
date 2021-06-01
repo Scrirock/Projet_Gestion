@@ -102,3 +102,7 @@ nav{
     letter-spacing: initial;
     text-transform: initial;
 }
+
+#menuBar{
+    display: none;
+}

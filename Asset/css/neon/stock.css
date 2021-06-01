@@ -1,7 +1,7 @@
 #stockContainer{
     display: flex;
     flex-flow: column nowrap;
-    margin-top: 5rem;
+    padding-top: 5rem;
 }
 
 .categoryName{
@@ -168,7 +168,9 @@
 
 .productLine{
     font-size: 2.7rem;
-    margin: 1rem;
+    margin: 2rem 0;
+    display: inline-block;
+    width: 43rem;
 }
 
 .productName, .productStock{
@@ -179,15 +181,6 @@
     0 0 150px #23c3cf;
     padding: .5rem;
 
-}
-
-#containerStock{
-    display: flex;
-    flex-flow: column wrap;
-    align-content: flex-start;
-    width: 77%;
-    height: 90vh;
-    padding: 2rem 5rem;
 }
 
 .neonCategory{

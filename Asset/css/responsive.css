@@ -1,0 +1,100 @@
+@media screen and (max-width: 1500px) {
+    nav{
+        width: 4rem;
+        height: 4rem;
+        overflow: hidden;
+        position: absolute;
+        display: initial;
+        padding: .4rem;
+    }
+
+    #categoryMenu, #other{
+        padding: 1rem;
+        height: auto;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: initial;
+        justify-content: inherit;
+    }
+
+    #categoryMenu{
+        width: 100%;
+    }
+
+    #other{
+        width: 30rem;
+        margin-top: 10rem;
+    }
+
+    .menu:hover{
+        cursor: initial;
+    }
+
+    .menu:hover .border{
+        width: 0;
+    }
+
+    .menu{
+        width: 15rem;
+    }
+
+    .border{
+        width: 0;
+        transition: initial;
+        border-bottom: none;
+        position: initial;
+        top: initial;
+    }
+
+    #connexionButton{
+        width: 17rem;
+        margin: auto;
+    }
+
+    #searchBar {
+        display: none;
+    }
+
+    .under{
+        top: 0;
+        width: 25rem;
+    }
+
+    #menuBar{
+        display: initial;
+        padding: 0;
+    }
+
+    nav:hover{
+        width: 32rem;
+        height: 90vh;
+    }
+}
+@media screen and (max-width: 800px) {
+    #containerHomePage{
+        height: auto;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-top: 5rem;
+    }
+
+    #containerStock{
+        width: 100%;
+        border: none;
+        padding: 0;
+    }
+
+    #containerHistory{
+        overflow: initial;
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .stockMin{
+        display: none;
+    }
+}

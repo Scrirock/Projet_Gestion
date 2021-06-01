@@ -74,17 +74,18 @@ textarea{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    height: 90vh;
 }
 
 #containerStock{
+    width: 77%;
+    padding: 2rem 5rem;
     border-right: 1px solid #2E303E;
 }
 
 #containerHistory{
     overflow: auto;
-    height: 90vh;
     width: 23%;
+    min-width: 25rem;
 }
 
 .historyLine{

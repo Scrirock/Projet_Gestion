@@ -1,7 +1,7 @@
 #stockContainer{
     display: flex;
     flex-flow: column nowrap;
-    margin-top: 5rem;
+    padding-top: 5rem;
 }
 
 .categoryName{
@@ -137,22 +137,15 @@
 
 .productLine{
     font-size: 2.7rem;
-    margin: 1rem;
+    margin: 2rem 0;
+    display: inline-block;
+    width: 43rem;
 }
 
 .productName{
     border-bottom: 1px solid #F22F08;
     padding: .5rem;
 
-}
-
-#containerStock{
-    display: flex;
-    flex-flow: column wrap;
-    align-content: flex-start;
-    width: 77%;
-    height: 90vh;
-    padding: 2rem 5rem;
 }
 
 .oneProduct{

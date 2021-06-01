@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="Asset/css/default.css" id="themeChanger">
     <link rel="stylesheet" href="Asset/css/theme.css">
+    <link rel="stylesheet" href="Asset/css/responsive.css">
     <script src="https://kit.fontawesome.com/10b102adea.js" crossorigin="anonymous"></script>
     <title><?= $title ?></title>
 </head>
