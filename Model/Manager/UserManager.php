@@ -152,26 +152,32 @@ class UserManager {
      * @param User $user
      */
     public function modifyUser(User $user){
-        $request = DB::getInstance()->prepare("
+        if ($this->checkUserName($user->getName())) {
+            $request = DB::getInstance()->prepare("
             UPDATE user SET role_fk = :role,
                             username = :username  
                         WHERE id = :id 
         ");
 
-        $role = $user->getRole();
-        $username = $user->getName();
-        $id = $user->getId();
+            $role = $user->getRole();
+            $username = $user->getName();
+            $id = $user->getId();
 
-        $request->bindParam(":role", $role);
-        $request->bindParam(":username", $username);
-        $request->bindParam(":id", $id);
+            $request->bindParam(":role", $role);
+            $request->bindParam(":username", $username);
+            $request->bindParam(":id", $id);
 
-        if ($request->execute()){
-            header("Location: /?controller=adminPanel");
+            if ($request->execute()) {
+                header("Location: /?controller=adminPanel");
+            } else {
+                session_start();
+                $_SESSION["error"] = "Une erreur est survenu, veuillez réessayer";
+                header("Location: /?controller=adminPanel");
+            }
         }
         else{
             session_start();
-            $_SESSION["error"] = "Une erreur est survenu, veuillez réessayer";
+            $_SESSION["error?"] = "Ce nom d'utilisateur est deja prit";
             header("Location: /?controller=adminPanel");
         }
     }
