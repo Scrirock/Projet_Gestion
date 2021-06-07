@@ -2,7 +2,7 @@
     <i class="fas fa-bars" id="menuBar"></i>
     <div id="categoryMenu">
         <a href="/">
-            <div class="menu"><div class="border">Acceuil</div></div>
+            <div class="menu"><div class="border">Accueil</div></div>
         </a>
         <a href="?controller=category">
             <div class="menu"><div class="border">Catégorie</div></div>
