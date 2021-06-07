@@ -9,10 +9,6 @@
     foreach ($var['value'] as $value){ ?>
         <form action="" method="POST" class="stockForm">
             <div class="flex">
-                <label for="stock">Stock: </label>
-                <input class="hasFocus" type="text" id="stock" name="stock" value="<?= $value['stock'] ?>">
-            </div>
-            <div class="flex">
                 <label for="stockMin">Stock Minimum: </label>
                 <input class="hasFocus" type="text" id="stockMin" name="stockMin" value="<?= $value['stockMin'] ?>">
             </div>

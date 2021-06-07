@@ -82,7 +82,6 @@ class StockManager{
                 reference = :reference, 
                 location = :location, 
                 fk_provider = :provider, 
-                stock = :stock,
                 stockMin = :stockMin,
                 location2 = :location2
             WHERE id = :id
@@ -95,7 +94,6 @@ class StockManager{
         $reference = $stockObject->getReference();
         $location = $stockObject->getLocation();
         $provider = $stockObject->getProvider();
-        $stock = $stockObject->getStock();
         $stockMin = $stockObject->getStockMin();
         $location2 = $stockObject->getLocation2();
         $id = $stockObject->getId();
@@ -107,7 +105,6 @@ class StockManager{
         $request->bindParam(":reference", $reference);
         $request->bindParam(":location", $location);
         $request->bindParam(":provider", $provider);
-        $request->bindParam(":stock", $stock);
         $request->bindParam(":stockMin", $stockMin);
         $request->bindParam(":location2", $location2);
         $request->bindParam(":id", $id);

@@ -21,8 +21,7 @@ class StockController{
     public function modify($fields, $id){
         $stockManager = new StockManager();
         $db = new DB();
-        if(isset($fields['stockMin'], $fields['stock'], $fields['name'], $fields['reference'], $fields['category'], $fields['description'], $fields['condition'], $fields['provider'], $fields['location'], $fields['location2'],)) {
-            $stock = $db->sanitize($fields['stock']);
+        if(isset($fields['stockMin'], $fields['name'], $fields['reference'], $fields['category'], $fields['description'], $fields['condition'], $fields['provider'], $fields['location'], $fields['location2'],)) {
             $stockMin = $db->sanitize($fields['stockMin']);
             $name = $db->sanitize($fields['name']);
             $reference = $db->sanitize($fields['reference']);
@@ -33,7 +32,7 @@ class StockController{
             $location = $db->sanitize($fields['location']);
             $location2 = $db->sanitize($fields['location2']);
 
-            $stockObject = new Stock($stock, $name, $stockMin, $reference, $category, $description, $condition, $provider, $location, $location2, $id);
+            $stockObject = new Stock(null, $name, $stockMin, $reference, $category, $description, $condition, $provider, $location, $location2, $id);
             $stockManager->modify($stockObject);
         }
 
