@@ -108,6 +108,7 @@ if(isset($_GET['controller'])) {
             if (isset($_GET['r'])){
                 $controller->getBySearch($_GET['r']);
             }
+            break;
         case 'toDoList':
             $controller = new ToDoListController();
             $controller->toDoList();
