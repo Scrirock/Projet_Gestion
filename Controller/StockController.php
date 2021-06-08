@@ -73,7 +73,12 @@ class StockController{
      * @param $id
      */
     public function delete($id){
-        (new StockManager())->deleteProduct($id);
+        if(isset($_SESSION['role']) && $_SESSION['role'] === "admin") {
+            (new StockManager())->deleteProduct($id);
+        }
+        else{
+            header("Location: /");
+        }
     }
 
     /**

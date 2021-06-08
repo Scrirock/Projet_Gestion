@@ -38,7 +38,12 @@ class ToDoListController{
      * @param $id
      */
     public function deleteList($id){
-        (new ListManager())->deleteList($id);
+        if(isset($_SESSION['role']) && $_SESSION['role'] === "admin") {
+            (new ListManager())->deleteList($id);
+        }
+        else{
+            header("Location: /");
+        }
     }
 
     public function addList($fields){

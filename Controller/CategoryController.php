@@ -53,6 +53,11 @@ class CategoryController{
      * @param $id
      */
     public function delete($id){
-        (new CategoryManager())->deleteCategory($id);
+        if(isset($_SESSION['role']) && $_SESSION['role'] === "admin") {
+            (new CategoryManager())->deleteCategory($id);
+        }
+        else{
+            header("Location: /");
+        }
     }
 }

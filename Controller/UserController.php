@@ -114,6 +114,11 @@ class UserController{
      * @param $id
      */
     public function deleteUser($id){
-        (new UserManager())->deleteUser($id);
+        if(isset($_SESSION['role']) && $_SESSION['role'] === "admin") {
+            (new UserManager())->deleteUser($id);
+        }
+        else{
+            header("Location: /");
+        }
     }
 }
