@@ -18,22 +18,23 @@ class StockManager{
      * @return array
      */
     public function getAll(): array{
-        $request = DB::getInstance()->prepare("SELECT 
-                                                           s.id as sid, s.fk_category,
-                                                           s.product_name, s.description,
-                                                           s.fk_condition, s.reference,
-                                                           s.location, s.fk_provider,
-                                                           s.stock, s.location2, s.stockMin,
-                                                           c.id as cid, c.name as cname,
-                                                           e.id as condId, e.condition_name,
-                                                           pro.id as proId, pro.provider_name 
-                                                      FROM stock as s
-                                                        INNER JOIN category as c
-                                                            ON s.fk_category = c.id
-                                                        INNER JOIN etat as e
-                                                            ON s.fk_condition = e.id
-                                                        INNER JOIN provider as pro
-                                                            ON s.fk_provider = pro.id");
+        $request = DB::getRepresentative()->prepare("
+            SELECT 
+                s.id as sid, s.fk_category,
+                s.product_name, s.description,
+                s.fk_condition, s.reference,
+                s.location, s.fk_provider,
+                s.stock, s.location2, s.stockMin,
+                c.id as cid, c.name as cname,
+                e.id as condId, e.condition_name,
+                pro.id as proId, pro.provider_name 
+            FROM stock as s
+                INNER JOIN category as c
+                    ON s.fk_category = c.id
+                INNER JOIN etat as e
+                    ON s.fk_condition = e.id
+                INNER JOIN provider as pro
+                    ON s.fk_provider = pro.id");
         if ($request->execute()){
             return $request->fetchAll();
         }
@@ -45,23 +46,24 @@ class StockManager{
      * @return array
      */
     public function getOne(int $id): array{
-        $request = DB::getInstance()->prepare("SELECT 
-                                                           s.id as sid, s.fk_category,
-                                                           s.product_name, s.description,
-                                                           s.fk_condition, s.reference,
-                                                           s.location, s.fk_provider,
-                                                           s.stock, s.location2, s.stockMin,
-                                                           c.id as cid, c.name as cname,
-                                                           e.id as condId, e.condition_name,
-                                                           pro.id as proId, pro.provider_name 
-                                                      FROM stock as s
-                                                        INNER JOIN category as c
-                                                            ON s.fk_category = c.id
-                                                        INNER JOIN etat as e
-                                                            ON s.fk_condition = e.id
-                                                        INNER JOIN provider as pro
-                                                            ON s.fk_provider = pro.id
-                                                      WHERE s.id = :id");
+        $request = DB::getRepresentative()->prepare("
+            SELECT 
+                s.id as sid, s.fk_category,
+                s.product_name, s.description,
+                s.fk_condition, s.reference,
+                s.location, s.fk_provider,
+                s.stock, s.location2, s.stockMin,
+                c.id as cid, c.name as cname,
+                e.id as condId, e.condition_name,
+                pro.id as proId, pro.provider_name 
+           FROM stock as s
+           INNER JOIN category as c
+               ON s.fk_category = c.id
+           INNER JOIN etat as e
+               ON s.fk_condition = e.id
+           INNER JOIN provider as pro
+               ON s.fk_provider = pro.id
+           WHERE s.id = :id");
         $request->bindParam(':id', $id);
         if ($request->execute()){
             return $request->fetchAll();
@@ -73,7 +75,7 @@ class StockManager{
      * @param Stock $stockObject
      */
     public function modify(Stock $stockObject){
-        $request = DB::getInstance()->prepare("
+        $request = DB::getRepresentative()->prepare("
             UPDATE stock 
             SET product_name = :name, 
                 fk_category = :category, 
@@ -119,7 +121,7 @@ class StockManager{
      * @param Stock $stockObject
      */
     public function add(Stock $stockObject){
-        $request = DB::getInstance()->prepare("
+        $request = DB::getRepresentative()->prepare("
             INSERT INTO stock (
                                product_name,
                                fk_category,
@@ -189,14 +191,14 @@ class StockManager{
                 }
                 $key = substr($key, 1);
 
-                $request = DB::getInstance()->prepare("SELECT stock FROM stock
+                $request = DB::getRepresentative()->prepare("SELECT stock FROM stock
                                                             WHERE product_name = :name");
                 $key = str_replace("_", " ", $key);
                 $request->bindParam(":name", $key);
                 $request->execute();
                 $stock = $request->fetch();
 
-                $request = DB::getInstance()->prepare("UPDATE stock SET stock = :newStock
+                $request = DB::getRepresentative()->prepare("UPDATE stock SET stock = :newStock
                                                             WHERE product_name = :name");
                 if ($action === "subtraction"){
                     $newValue = intval(intval($stock['stock']) - intval($value));
@@ -229,7 +231,7 @@ class StockManager{
      */
     public function getStock(): array{
         $totalStock = [];
-        $request = DB::getInstance()->prepare("SELECT product_name, stock, stockMin FROM stock");
+        $request = DB::getRepresentative()->prepare("SELECT product_name, stock, stockMin FROM stock");
         $request->execute();
 
         $stockData = $request->fetchAll();
@@ -245,7 +247,7 @@ class StockManager{
      * @param $id
      */
     public function deleteProduct($id){
-        $request = DB::getInstance()->prepare("DELETE FROM stock WHERE id = :id");
+        $request = DB::getRepresentative()->prepare("DELETE FROM stock WHERE id = :id");
         $request->bindParam(':id', $id);
         $request->execute();
         header("Location: /?controller=category");
@@ -257,23 +259,25 @@ class StockManager{
      * @return array
      */
     public function getBySearch($data): array{
-        $request = DB::getInstance()->prepare("SELECT 
-                                                           s.id as sid, s.fk_category,
-                                                           s.product_name, s.description,
-                                                           s.fk_condition, s.reference,
-                                                           s.location, s.fk_provider,
-                                                           s.stock, s.location2, s.stockMin,
-                                                           c.id as cid, c.name as cname,
-                                                           e.id as condId, e.condition_name,
-                                                           pro.id as proId, pro.provider_name 
-                                                      FROM stock as s
-                                                        INNER JOIN category as c
-                                                            ON s.fk_category = c.id
-                                                        INNER JOIN etat as e
-                                                            ON s.fk_condition = e.id
-                                                        INNER JOIN provider as pro
-                                                            ON s.fk_provider = pro.id
-                                                      WHERE s.product_name LIKE :search");
+        $request = DB::getRepresentative()->prepare("
+            SELECT 
+                s.id as sid, s.fk_category,
+                s.product_name, s.description,
+                s.fk_condition, s.reference,
+                s.location, s.fk_provider,
+                s.stock, s.location2, s.stockMin,
+                c.id as cid, c.name as cname,
+                e.id as condId, e.condition_name,
+                pro.id as proId, pro.provider_name 
+            FROM stock as s
+                INNER JOIN category as c
+                    ON s.fk_category = c.id
+                INNER JOIN etat as e
+                    ON s.fk_condition = e.id
+                INNER JOIN provider as pro
+                    ON s.fk_provider = pro.id
+            WHERE s.product_name LIKE :search
+        ");
         $search = "%".$data."%";
         $request->bindParam(':search', $search);
         if ($request->execute()){

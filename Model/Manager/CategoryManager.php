@@ -18,7 +18,7 @@ class CategoryManager{
      * @return array
      */
     public function getACat(int $id): array{
-        $request = DB::getInstance()->prepare("SELECT * FROM category WHERE id = :id");
+        $request = DB::getRepresentative()->prepare("SELECT * FROM category WHERE id = :id");
         $request->bindParam(':id', $id);
         if ($request->execute()){
             return $request->fetchAll();
@@ -30,7 +30,7 @@ class CategoryManager{
      * @param Category $categoryObject
      */
     public function modify(Category $categoryObject){
-        $request = DB::getInstance()->prepare("
+        $request = DB::getRepresentative()->prepare("
             UPDATE category SET name = :name WHERE id = :id
         ");
 
@@ -50,7 +50,7 @@ class CategoryManager{
      * @param Category $categoryObject
      */
     public function add(Category $categoryObject){
-        $request = DB::getInstance()->prepare("
+        $request = DB::getRepresentative()->prepare("
             INSERT INTO category (name)
                 VALUES (:name)
         ");
@@ -68,7 +68,7 @@ class CategoryManager{
      * @param $id
      */
     public function deleteCategory($id){
-        $request = DB::getInstance()->prepare("DELETE FROM category WHERE id = :id");
+        $request = DB::getRepresentative()->prepare("DELETE FROM category WHERE id = :id");
         $request->bindParam(':id', $id);
         $request->execute();
         header("Location: /?controller=category");
@@ -79,7 +79,7 @@ class CategoryManager{
      * @return array
      */
     public function getCategory(): array{
-        $request = DB::getInstance()->prepare("SELECT * FROM category");
+        $request = DB::getRepresentative()->prepare("SELECT * FROM category");
         if ($request->execute()){
             return $request->fetchAll();
         }

@@ -38,7 +38,10 @@
                 <span></span>
                 <span></span>
                 <span></span>
-                Connexion
+                <?php
+                    if (isset($_SESSION['name'])) echo "Déconnexion";
+                    else echo "Connexion";
+                ?>
             </a>
             <?php if (isset($_SESSION['name'])) echo "<p>Vous êtes connecté en tant que ".$_SESSION['name']."</p>" ?>
         </div>

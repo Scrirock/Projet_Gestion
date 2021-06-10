@@ -31,7 +31,7 @@ nav{
 }
 
 #categoryMenu{
-    width: 50%;
+    width: 65%;
 }
 
 #other{
@@ -75,7 +75,7 @@ nav{
     transition: .5s;
     letter-spacing: 4px;
     overflow: hidden;
-    width: 20rem;
+    width: auto;
     margin: auto;
 }
 

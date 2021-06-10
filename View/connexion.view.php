@@ -1,5 +1,9 @@
 <?php
     include "View/_partials/menu.view.php";
+    if (isset($_SESSION['name'])){
+        session_destroy();
+        header("Location: /");
+    }
 
     if(isset($_SESSION['error'])) {
         echo "<div id='error'>" . $_SESSION['error'] . "</div>";

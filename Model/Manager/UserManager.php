@@ -17,7 +17,7 @@ class UserManager {
      */
     public function getById(int $id): User {
         $user = new User();
-        $request = DB::getInstance()->prepare("SELECT id, username FROM user WHERE id = :id");
+        $request = DB::getRepresentative()->prepare("SELECT id, username FROM user WHERE id = :id");
         $request->bindValue(':id', $id);
         $result = $request->execute();
         if($result) {
@@ -38,7 +38,7 @@ class UserManager {
      */
     public function getByName(string $name): User {
         $user = new User();
-        $request = DB::getInstance()->prepare("SELECT id, username FROM user WHERE username = :name");
+        $request = DB::getRepresentative()->prepare("SELECT id, username FROM user WHERE username = :name");
         $request->bindValue(':name', $name);
         $result = $request->execute();
         if($result) {
@@ -59,7 +59,7 @@ class UserManager {
      * @return bool
      */
     public function checkUser($name, $password): bool{
-        $request = DB::getInstance()->prepare("SELECT * FROM user WHERE username = :name");
+        $request = DB::getRepresentative()->prepare("SELECT * FROM user WHERE username = :name");
         $request->bindValue(':name', $name);
 
         if($request->execute()) {
@@ -82,7 +82,7 @@ class UserManager {
      * @return int
      */
     public function checkRole($name): int{
-        $request = DB::getInstance()->prepare("SELECT * FROM user WHERE username = :name");
+        $request = DB::getRepresentative()->prepare("SELECT * FROM user WHERE username = :name");
         $request->bindValue(':name', $name);
 
         if($request->execute()) {
@@ -97,7 +97,7 @@ class UserManager {
      * @return bool
      */
     public function checkUserName($name): bool{
-        $request = DB::getInstance()->prepare("SELECT username FROM user");
+        $request = DB::getRepresentative()->prepare("SELECT username FROM user");
         $request->execute();
         $check = true;
 
@@ -115,8 +115,9 @@ class UserManager {
      * @param User $user
      */
     public function addUser(User $user){
+        session_start();
         if ($this->checkUserName($user->getName())){
-            $request = DB::getInstance()->prepare("
+            $request = DB::getRepresentative()->prepare("
             INSERT INTO user (role_fk, username, password)
                 VALUES (:role, :username, :password)
             ");
@@ -129,19 +130,16 @@ class UserManager {
             $request->bindParam(":username", $username);
             $request->bindParam(":password", $password);
             if ($request->execute()){
-                session_start();
                 $_SESSION["role"] = "guest";
                 $_SESSION["name"] = $username;
                 header("Location: /");
             }
             else{
-                session_start();
                 $_SESSION["error?"] = "Une erreur est survenu, veuillez réessayer";
                 header("Location: /?controller=addUser");
             }
         }
         else{
-            session_start();
             $_SESSION["error?"] = "Ce nom d'utilisateur est deja prit";
             header("Location: /?controller=addUser");
         }
@@ -153,7 +151,7 @@ class UserManager {
      */
     public function modifyUser(User $user){
         if ($this->checkUserName($user->getName())) {
-            $request = DB::getInstance()->prepare("
+            $request = DB::getRepresentative()->prepare("
             UPDATE user SET role_fk = :role,
                             username = :username  
                         WHERE id = :id 
@@ -169,7 +167,8 @@ class UserManager {
 
             if ($request->execute()) {
                 header("Location: /?controller=adminPanel");
-            } else {
+            }
+            else {
                 session_start();
                 $_SESSION["error"] = "Une erreur est survenu, veuillez réessayer";
                 header("Location: /?controller=adminPanel");
@@ -187,7 +186,7 @@ class UserManager {
      * @param $id
      */
     public function deleteUser($id){
-        $request = DB::getInstance()->prepare("DELETE FROM user WHERE id = :id");
+        $request = DB::getRepresentative()->prepare("DELETE FROM user WHERE id = :id");
         $request->bindParam(':id', $id);
         $request->execute();
         header("Location: /?controller=adminPanel");
@@ -198,7 +197,7 @@ class UserManager {
      * @return array
      */
     public function getAll(): array{
-        $request = DB::getInstance()->prepare("
+        $request = DB::getRepresentative()->prepare("
             SELECT u.id as uid,
                    u.username, u.role_fk,
                    r.id as rid,

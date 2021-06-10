@@ -18,7 +18,7 @@ class ListManager{
      */
     public function getAll(): array{
         $list = [];
-        $request = DB::getInstance()->prepare("SELECT * FROM todo_list");
+        $request = DB::getRepresentative()->prepare("SELECT * FROM todo_list");
         $request->execute();
         $data = $request->fetchAll();
         foreach ($data as $element){
@@ -28,7 +28,7 @@ class ListManager{
     }
 
     public function getById($id): array{
-        $request = DB::getInstance()->prepare("SELECT * FROM todo_list WHERE id = :id");
+        $request = DB::getRepresentative()->prepare("SELECT * FROM todo_list WHERE id = :id");
         $request->bindValue(':id', $id);
         $request->execute();
 
@@ -36,7 +36,7 @@ class ListManager{
     }
 
     public function modifyList(ToDoList $listObject){
-        $request = DB::getInstance()->prepare("
+        $request = DB::getRepresentative()->prepare("
             UPDATE todo_list SET title = :title,
                             content = :content  
                         WHERE id = :id 
@@ -56,14 +56,14 @@ class ListManager{
     }
 
     public function deleteList($id){
-        $request = DB::getInstance()->prepare("DELETE FROM todo_list WHERE id = :id");
+        $request = DB::getRepresentative()->prepare("DELETE FROM todo_list WHERE id = :id");
         $request->bindParam(':id', $id);
         $request->execute();
         header("Location: /?controller=toDoList");
     }
 
     public function addList(ToDoList $listObject){
-        $request = DB::getInstance()->prepare("INSERT INTO todo_list (title, content) 
+        $request = DB::getRepresentative()->prepare("INSERT INTO todo_list (title, content) 
                                                         VALUES (:title, :content)");
 
         $title = $listObject->getTitle();

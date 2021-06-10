@@ -26,7 +26,7 @@ nav{
 }
 
 #categoryMenu{
-    width: 50%;
+    width: 65%;
 }
 
 #other{
@@ -61,7 +61,7 @@ nav{
 #connexionButton{
     border: 2px solid #AAAAAA;
     padding: 1rem;
-    width: 17rem;
+    width: auto;
     margin: auto;
 }
 

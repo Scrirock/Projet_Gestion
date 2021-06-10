@@ -15,7 +15,7 @@ class HistoryManager{
      * @return array
      */
     public function getHistory(): array{
-        $request = DB::getInstance()->prepare("SELECT * FROM history");
+        $request = DB::getRepresentative()->prepare("SELECT * FROM history");
         if ($request->execute()){
             $historyData = $request->fetchAll();
             foreach ($historyData as $data){
@@ -32,7 +32,7 @@ class HistoryManager{
      * @param $name
      */
     public function AddEntry($difference, $name){
-        $request = DB::getInstance()->prepare("INSERT INTO history (difference, history_product_name)
+        $request = DB::getRepresentative()->prepare("INSERT INTO history (difference, history_product_name)
                                                         VALUES (:difference, :name)");
         $request->bindParam(':difference', $difference);
         $request->bindParam(':name', $name);

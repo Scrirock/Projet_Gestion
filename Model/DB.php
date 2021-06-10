@@ -6,7 +6,7 @@ use PDO;
 use PDOException;
 
 class DB {
-    private static ?PDO $dbInstance = null;
+    private static ?PDO $representativeDb = null;
 
 
     public function __construct(){
@@ -15,9 +15,9 @@ class DB {
         $database = 'gestion';
 
         try {
-            self::$dbInstance = new PDO("mysql:host=localhost;dbname=$database;charset=utf8", $user, $password);
-            self::$dbInstance->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            self::$dbInstance->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            self::$representativeDb = new PDO("mysql:host=localhost;dbname=$database;charset=utf8", $user, $password);
+            self::$representativeDb->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            self::$representativeDb->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         }
         catch(PDOException $exception) {
             echo $exception->getMessage();
@@ -40,17 +40,17 @@ class DB {
 
     /**
      * Return only one PDO  instance through the whole project.
-     * @return PDO|null (instance) PDO|null
+     * @return PDO|null
      */
-    public static function getInstance(): ?PDO {
-        if(null === self::$dbInstance) {
+    public static function getRepresentative(): ?PDO {
+        if(null === self::$representativeDb) {
             new self();
         }
-        return self::$dbInstance;
+        return self::$representativeDb;
     }
 
     /**
-     * Prevent letting other developers clone the object
+     * Prevent to clone the object
      */
     public function __clone(){}
 }
