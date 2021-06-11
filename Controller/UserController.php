@@ -80,11 +80,13 @@ class UserController{
     public function addUser($fields){
         $db = new DB();
         if(isset($fields['username'], $fields['password'])) {
-            $username = $db->sanitize($fields['username']);
-            $password = password_hash($db->sanitize($fields['password']), PASSWORD_BCRYPT);
+            if (strlen($fields['username']) > 1 && strlen($fields['username']) < 40){
+                $username = $db->sanitize($fields['username']);
+                $password = password_hash($db->sanitize($fields['password']), PASSWORD_BCRYPT);
 
-            $userObject = new User($username, $password);
-            (new UserManager())->addUser($userObject);
+                $userObject = new User($username, $password);
+                (new UserManager())->addUser($userObject);
+            }
         }
 
         $this->render('add.user', "S'inscrire");
@@ -97,11 +99,13 @@ class UserController{
      */
     public function modifyUser($fields, $id){
         if(isset($fields['role'], $fields['name'])) {
-            $role = (new DB())->sanitize($fields['role']);
-            $name = (new DB())->sanitize($fields['name']);
+            if (strlen($fields['username']) > 1 && strlen($fields['username']) < 40) {
+                $role = (new DB())->sanitize($fields['role']);
+                $name = (new DB())->sanitize($fields['name']);
 
-            $userObject = new User($name, null, $role, $id);
-            (new UserManager())->modifyUser($userObject);
+                $userObject = new User($name, null, $role, $id);
+                (new UserManager())->modifyUser($userObject);
+            }
         }
 
         $this->render('modify.user', "Modifier un utilisateur", [

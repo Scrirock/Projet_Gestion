@@ -1,0 +1,17 @@
+{
+  "name": "vendor_name/Projet_Gestion",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "matt",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  }
+}
